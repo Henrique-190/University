@@ -1,0 +1,79 @@
+GuiÃ£o da Ficha de Trabalho 3
+Pretende-se que esta ficha ajude os alunos a cimentar os conhecimentos da compilaÃ§Ã£o separada e dos ciclos.
+
+Implemente um mÃ³dulo chamado desenhos, o que implica criar dois ficheiros: um chamado desenhos.h e outro chamado desenhos.c. O ficheiro desenhos.h deverÃ¡ conter os protÃ³tipos das funÃ§Ãµes que devem ser conhecidas por outros mÃ³dulos. O ficheiro desenhos.c deverÃ¡ conter o cÃ³digo correspondente. Finalmente, crie um ficheiro chamado principal.c que deverÃ¡ conter a funÃ§Ã£o main.
+
+Pretende-se que o executÃ¡vel receba dois argumentos: o nÃºmero da tarefa a executar e o argumento que Ã© passado a essa tarefa. Assim, se o programa for corrido da seguinte forma:
+
+./a.out 2 5
+EntÃ£o deverÃ¡ ser invocada a funÃ§Ã£o correspondente Ã  segunda tarefa e ser passado a essa funÃ§Ã£o o valor 5.
+
+Ficheiro principal.c
+O mÃ³dulo principal deverÃ¡ ler os parÃ¢metros a partir da linha de comandos. Logo deverÃ¡ ter o seguinte aspeto:
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "desenhos.h"
+
+int main(int argc, char *argv[]) {
+    if(argc == 3) {
+        int tarefa = atoi(argv[1]);
+        int numero = atoi(argv[2]);
+        switch(tarefa) {
+            case 1: imprime_triangulo(numero); break;
+            case 2: imprime_losango(numero); break;
+            case 3: imprime_hexagono(numero); break;
+            default: printf("Erro! Tarefa desconhecida: %d\n", tarefa);
+        }
+    }
+    return 0;
+}
+CriaÃ§Ã£o de um mÃ³dulo
+Para criar um mÃ³dulo, Ã© necessÃ¡rio criar dois ficheiros, um com a extensÃ£o .h e outro com a extensÃ£o .c. O ficheiro com a extensÃ£o .h deverÃ¡ ter os protÃ³tipos das funÃ§Ãµes que devem ser conhecidas de fora e definiÃ§Ã£o de outras coisas que sejam partilhadas tais como estruturas de dados e macros. O esqueleto base dum ficheiro desse gÃ©nero deve ter o seguinte aspeto:
+
+#ifndef ___DESENHOS_H___
+#define ___DESENHOS_H___
+
+Aqui dentro aparece o cÃ³digo correspondente aos protÃ³tipos
+
+#endif
+Ã‰ importante criar uma macro Ãºnica para garantir que mesmo que se inclua o mesmo ficheiro duas vezes, ele sÃ³ seja incluido uma vez. Assim evitam-se muitos dissabores. Costuma-se usar a convenÃ§Ã£o mostrada aqui para garantir que um ficheiro com o nome desenhos.h tenha a macro ___DESENHOS_H___ e assim garantir que a mesma macro nÃ£o seja utilizada em vÃ¡rios ficheiros.
+
+Tarefa 1
+Escreva uma funÃ§Ã£o em C com o seguinte protÃ³tipo:
+
+void imprime_triangulo(int num_linhas);
+e que reproduza o seguinte padrÃ£o (neste caso invocada com o valor 4):
+
+       A
+     A B A
+   A B C B A
+ A B C D C B A
+Repare que hÃ¡ um espaÃ§o no inÃ­cio da Ãºltima linha.
+
+Tarefa 2
+Adapte a tarefa anterior para desenhar um losango:
+
+       A
+     A B A
+   A B C B A
+ A B C D C B A
+   A B C B A
+     A B A
+       A
+SugestÃ£o: Como esta tarefa Ã© muito parecida com a anterior, ao resolver a tarefa anterior use uma funÃ§Ã£o auxiliar para imprimir cada linha do triÃ¢ngulo e depois use essa funÃ§Ã£o nesta tarefa.
+
+Tarefa 3
+Escreva uma funÃ§Ã£o com o seguinte protÃ³tipo:
+
+void imprime_hexagono(int num);
+que imprima o seguinte padrÃ£o (no caso de ser invocada com o valor 4):
+
+    ####
+   #    #
+  #      #
+ #        #
+  #      #
+   #    #
+    ####
+SugestÃ£o: Comece por imprimir o hexÃ¡gono cheio antes de se preocupar com o contorno.
