@@ -1,0 +1,194 @@
+-- | Este módulo define funções comuns da Tarefa 2 do trabalho prático.
+module Tarefa2_2019li1g009 where
+
+import LI11920
+import Tarefa1_2019li1g009
+
+-- * Testes
+
+-- | Testes unitários da Tarefa 2.
+--
+-- Cada teste é um triplo (/identificador do 'Jogador'/,/'Jogada' a efetuar/,/'Estado' anterior/).
+testesT2 :: [(Int,Jogada,Estado)]
+testesT2 = []
+
+
+-- dir é a função que define a direção;
+-- Primeiro, descobre se o jogador x está no ar;
+-- Depois, altera o estado do jogador x;
+-- m=mapa ; pj=pistaJogador ; dj=distanciaJogador ; 
+-- vj=velocidadeJogador ; cj=colajogador ; ej=estadoJogador ;
+-- aj=alturajogador ; ij=inclinaçãojogador ; gj=gravidadeJogador ;
+-- tj=timeoutJogador ; acj=aceleraJogador.
+dir :: Int -> Direcao -> Estado -> Estado
+dir _ _ (Estado m []) = (Estado m [])
+dir x D (Estado m (j:js)) =
+    if x==1 
+    then if estaAr x (j:js) == True
+         then (Estado m (movimentaD x (j:js)))
+         else (Estado m (j:js))
+    else if estaAr (x-1) (js) == True
+         then (Estado m (j:(movimentaD (x-1) js)))
+    else (Estado m (j:js))
+dir x E (Estado m (j:js)) =
+    if x==1 
+    then if estaAr x (j:js) == True
+         then (Estado m (movimentaE x (j:js)))
+         else (Estado m (j:js))
+    else if estaAr (x-1) (js) == True
+         then (Estado m (j:(movimentaE (x-1) js)))
+    else (Estado m (j:js))
+dir x C (Estado m ((Jogador pj dj vj cj ej):xs)) =
+    if estaChao x ((Jogador pj dj vj cj ej):xs)==True
+    then (Estado m (mixTudoC x m ((Jogador pj dj vj cj ej):xs)))
+    else (Estado m ((Jogador pj dj vj cj ej):xs))
+dir x C (Estado m ((Jogador pj dj vj cj ej):xs)) =
+    if estaChao x ((Jogador pj dj vj cj ej):xs)==True
+    then (Estado m (mixTudoD x m ((Jogador pj dj vj cj ej):xs)))
+    else (Estado m ((Jogador pj dj vj cj ej):xs))
+
+ 
+
+mixTudoC :: Int -> Mapa -> [Jogador] -> [Jogador]
+mixTudoC x m [] = []
+mixTudoC x m ((Jogador pj dj vj cj ej):xs) =
+    if x==1
+    then if pj==1 
+         then ((Jogador pj dj vj cj ej):xs)
+         else if difA x m ((Jogador pj dj vj cj ej):xs) <= (2/10) && difA x m ((Jogador pj dj vj cj ej):xs)  >= (-2/10)
+              then ((Jogador (pj-1) dj vj cj ej):xs)
+              else if (qaltura (ondeestas x m ((Jogador pj dj vj cj ej):xs)))<qpe
+                   then ((Jogador (pj) dj vj cj (Morto 1.0)):xs)
+                   else ((Jogador (pj-1) dj vj cj (Ar (qaltura (ondeestas x m ((Jogador pj dj vj cj ej):xs))) (inc (ondeestas x m ((Jogador pj dj vj cj ej):xs))) 0)):xs)
+    else ((Jogador pj dj vj cj ej):(mixTudoC (x-1) m xs))
+
+   where dA = difA x m ((Jogador pj dj vj cj ej):xs)
+         qa = qaltura (ondeestas x m ((Jogador pj dj vj cj ej):xs))
+         oe = ondeestas x m ((Jogador pj dj vj cj ej):xs)
+         qpe = qaltura (qpeca (pj-1) (floor dj) m)
+
+qalturaa :: Peca -> Int
+qalturaa (Recta piso x) = x
+qalturaa (Rampa piso x y) = y
+
+-- Função que calcula a inclinação
+inc :: Peca -> Double 
+inc (Recta piso x) = 0
+inc (Rampa piso x y) = atan ((fromIntegral y)-(fromIntegral x))
+
+
+
+-- Função que calcula a diferença de alturas 	
+difA :: Int -> Mapa -> [Jogador] -> Double
+difA x m [] = 0
+difA x m ((Jogador pj dj vj cj ej):xs) = 
+    if x==1
+    then (qa-qac)
+    else difA (x-1) m (xs)
+
+ where qa = qaltura (ondeestas x m ((Jogador pj dj vj cj ej):xs))
+       qac = qaltura (qpeca (pj-1) (floor dj) m)
+
+
+-- Função que determina a peça onde o jogador está localizado.
+-- a== jogador 
+ondeestas :: Int -> Mapa -> [Jogador] -> Peca
+ondeestas a ((x:t):ts) ((Jogador pj dj vj cj ej):xs) =
+    if a==1
+    then if pj==1
+         then if dj>=0 && dj<=1
+              then x
+              else ondeestas a ((t):ts) ((Jogador pj (dj-1) vj cj ej):xs)
+         else ondeestas a (ts) ((Jogador (pj-1) dj vj cj ej):xs)
+    else ondeestas a ((x:t):ts) (xs) 
+
+
+-- Função que determina a altura do jogador
+qaltura :: Peca -> Double
+qaltura (Recta piso x) = (fromIntegral x)
+qaltura (Rampa piso x y) = ((fromIntegral y)-(fromIntegral x))
+
+
+-- Função que determina a peça da pista acima da do jogador
+-- a = pista ; b = distância do jogador
+qpeca :: Int -> Int -> Mapa -> Peca
+qpeca a b ((x:xs):t) =
+    if a==1
+    then if b==1
+         then x
+         else qpeca a (b-1) ((xs):t)
+    else qpeca a b t
+
+
+-- Função que verifica se o jogador está no Ar.
+-- Se sim, é True. Caso contrário, é False.
+estaAr :: Int -> [Jogador] -> Bool
+estaAr _ [] = False
+estaAr 0 j = False
+estaAr x ((Jogador pj dj vj cj (Chao acj)):xs) = 
+    if x==1 then False
+    else (estaAr (x-1) xs)
+estaAr x ((Jogador pj dj vj cj (Morto tj):xs)) = 
+    if x==1 then False
+    else (estaAr (x-1) xs)
+estaAr x ((Jogador pj dj vj cj (Ar aj ij gj)):xs) = 
+    if x==1 then True
+    else (estaAr (x-1) xs)
+
+
+estaChao :: Int -> [Jogador] -> Bool
+estaChao _ [] = False
+estaChao 0 j = False
+estaChao x ((Jogador pj dj vj cj (Chao acj)):xs) = 
+    if x==1 then True
+    else (estaChao (x-1) xs)
+estaChao x ((Jogador pj dj vj cj (Morto tj):xs)) = 
+    if x==1 then False
+    else (estaChao (x-1) xs)
+estaChao x ((Jogador pj dj vj cj (Ar aj ij gj)):xs) = 
+    if x==1 then False
+    else (estaChao (x-1) xs)
+
+
+
+
+
+
+-- Função que altera o EstadoJogador do Jogador.
+-- Diminui a sua inclinação
+-- x é o jogador. Ex.: Se x=1, então é o jogador1
+movimentaD :: Int -> [Jogador] -> [Jogador]
+movimentaD _ [] = []
+movimentaD x ((Jogador pj dj vj cj (Ar aj ij gj)):xs) = 
+    if x==1 
+    then if (ij-15)>=(-90)
+         then ((Jogador pj dj vj cj (Ar aj (ij-15) gj)):xs)
+         else ((Jogador pj dj vj cj (Ar aj (-90) gj)):xs)
+    else if x>1
+         then (Jogador pj dj vj cj (Ar aj ij gj)):(movimentaD (x-1) xs)
+         else ((Jogador pj dj vj cj (Ar aj ij gj)):xs)
+
+
+-- Função que faz o mesmo que a movimentaD. 
+-- Contudo, esta função aumenta a inclinação do jogador
+movimentaE :: Int -> [Jogador] -> [Jogador]
+movimentaE _ [] = []
+movimentaE x ((Jogador pj dj vj cj (Ar aj ij gj)):xs) = 
+    if x==1 
+    then if (ij+15)<=(90)
+         then ((Jogador pj dj vj cj (Ar aj (ij+15) gj)):xs)
+         else ((Jogador pj dj vj cj (Ar aj (90) gj)):xs)
+    else if x>1
+         then (Jogador pj dj vj cj (Ar aj ij gj)):(movimentaE (x-1) xs)
+         else ((Jogador pj dj vj cj (Ar aj ij gj)):xs)
+
+
+
+-- * Funções principais da Tarefa 2.
+
+-- | Efetua uma jogada.
+jogada :: Int -- ^ O identificador do 'Jogador' que efetua a jogada.
+       -> Jogada -- ^ A 'Jogada' a efetuar.
+       -> Estado -- ^ O 'Estado' anterior.
+       -> Estado -- ^ O 'Estado' resultante após o jogador efetuar a jogada.
+jogada = undefined

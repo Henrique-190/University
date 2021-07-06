@@ -1,0 +1,77 @@
+-- | Este módulo define funções comuns da Tarefa 2 do trabalho prático.
+module Tarefa1_2019li1g009 where
+
+import LI11920
+import System.Random
+
+-- * Testes
+
+-- | Testes unitários da Tarefa 1.
+--
+-- Cada teste é um triplo (/número de 'Pista's/,/comprimento de cada 'Pista' do 'Mapa'/,/semente de aleatoriedades/).
+testesT1 :: [(Int,Int,Int)]
+testesT1 = []
+
+-- * Funções pré-definidas da Tarefa 1.
+
+geraAleatorios :: Int -> Int -> [Int]
+geraAleatorios n seed = take n (randomRs (0,9) (mkStdGen seed))
+
+-- * Funções principais da Tarefa 1.
+
+gera :: Int -> Int -> Int -> Mapa
+gera npistas comprimento semente = undefined
+-- geraAleatorios (2*npistas*(comprimento-1)) semente
+
+dividePista :: [(Int,Int)] -> a -> [[(Int,Int)]]
+dividePista [[]] a = []
+dividePista 
+
+dividePistaAux :: [(Int,Int)] -> Int -> [(Int,Int)]
+dividePistaAux _ 0 = []
+dividePistaAux (x,y):ys a = (x,y): (dividePistaAux ys (a-1))
+
+-- Função que divide a lista em pares
+dividePar :: [Int] -> [(Int,Int)]
+dividePar [] = []
+dividePar (x:y:xs) = (x,y):(dividePar xs)
+
+
+-- Divide a lista de pares em lista de lista de pares, de modo a formar pistas
+dividePista :: [(Int,Int)] -> Int -> [[(Int,Int)]]
+dividePista [] a= []
+dividePista (x:y) a = (dividePistaAux1 (x:y) a):(dividePista retirar a)
+ where retirar=(drop a (x:y))
+--a=comprimento
+
+
+-- Alteramos o valor de "a" para "a-1", dado a primeira peça já está definida.
+dividePistaAux1 :: [(Int,Int)] -> Int -> [(Int,Int)]
+dividePistaAux1 l 0 = []
+dividePistaAux1 [] a = []
+dividePistaAux1 ((x,y):ys) (a) = (dividePistaAux ((x,y):ys) (a-1))
+
+-- Forma uma pista
+dividePistaAux :: [(Int,Int)] -> Int -> [(Int,Int)]
+dividePistaAux l 0 = []
+dividePistaAux [] a = []
+dividePistaAux ((x,y):ys) (a) = (x,y):(dividePistaAux ys (a-1))
+
+-- Função que define o piso a partir de um número aleatório.
+pisoPeca :: Piso -> Int -> Piso
+pisoPeca p a
+    | a==0 || a==1 = Terra
+    | a==2 || a==3 = Relva
+    | a==4 = Lama
+    | a==5 = Boost
+    | otherwise = p
+
+-- Função que define se o jogador sobe, desce ou mantêm a mesma altitude. D
+-- Define se é reta ou piso
+-- a é a altura anterior e g é a gama
+-- Não esquecer de colocar piso nas retas e rampas
+tipoPeca :: Int -> Int -> Int
+tipoPeca a g  
+ | g==0 || g==1 = Rampa Piso a (a+g+1)
+ | g==2 || g==3 || g==4 || g==5 = Rampa Piso a (a-g-1)
+ | otherwise =  Recta Piso a

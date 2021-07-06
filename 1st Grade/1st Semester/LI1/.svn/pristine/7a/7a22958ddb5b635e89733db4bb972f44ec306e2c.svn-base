@@ -1,0 +1,311 @@
+-- | Este módulo define funções comuns da Tarefa 2 do trabalho prático.
+module Tarefa2_2019li1g009 where
+
+import LI11920
+import Tarefa1_2019li1g009
+
+-- * Testes
+
+-- | Testes unitários da Tarefa 2.
+--
+-- Cada teste é um triplo (/identificador do 'Jogador'/,/'Jogada' a efetuar/,/'Estado' anterior/).
+testesT2 :: [(Int,Jogada,Estado)]
+testesT2 = [a,b,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,x,y,z,aa,bb,cc]
+    where a =(1,(Movimenta B),(Estado (gera 2 4 5) [(Jogador 1 2 3 2 (Morto (1))),(Jogador 0 1 3 2 (Chao True))]))
+          b = (1,(Movimenta B),(Estado (gera 2 4 5) [(Jogador 1 (2.5) 3 3 (Chao True)),(Jogador 0 5 3 2 (Chao True))]))
+          e = (4,(Movimenta C),(Estado (gera 5 3 4) [(Jogador 4 (2.9) 3 2 (Morto 0.5)),(Jogador 0 5 3 2 (Chao True))]))
+          f = (1,(Movimenta C),(Estado (gera 6 2 4) [(Jogador 2 (0.5) 3 2 (Ar 7 15 2)),(Jogador 0 5 3 2 (Chao True))]))
+          g = (0,(Movimenta D),(Estado (gera 1 3 8) [(Jogador 0 (2.7) 3 2 (Chao False)),(Jogador 0 5 3 2 (Chao True))]))
+          h = (0,(Movimenta D),(Estado (gera 2 6 7) [(Jogador 1 (5.2) 3 2 (Chao False)),(Jogador 0 5 3 2 (Chao True))]))
+          i = (1,(Movimenta E),(Estado (gera 3 5 8) [(Jogador 2 (4.1) 3 2 (Morto 0.7)),(Jogador 0 5 3 2 (Chao True))]))
+          j = (0,(Movimenta E),(Estado (gera 1 6 7) [(Jogador 0 (3.6) 3 2 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+          k = (3,(Acelera),(Estado (gera  6 4 2) [(Jogador 4 (5.3) 2 1 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+          l = (4,(Desacelera),(Estado (gera 6 5 2) [(Jogador 5 (2.3) 3 2 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+          m = (2,(Acelera),(Estado (gera 4 2 6) [(Jogador 0 5 (1.2) 2 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+          n = (5,(Desacelera),(Estado (gera 6 7 1) [(Jogador 4 (6.4) 3 2 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+          o = (2,(Movimenta B),(Estado (gera 5 3 6) [(Jogador 1 (0.1) 3 2 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+          p = (3,(Movimenta B),(Estado (gera 6 2 1) [(Jogador 5 (1.9) 3 2 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+          q = (0,(Movimenta D),(Estado (gera 1 8 2) [(Jogador 0 7 3 2 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+          r = (0,(Movimenta D),(Estado (gera 1 1 1) [(Jogador 0 (0.3) 3 2 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+          s = (4,(Movimenta C),(Estado (gera 6 1 8) [(Jogador 2 (0.9) 3 2 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+          t = (2,(Movimenta C),(Estado (gera 4 2 8) [(Jogador 2 (1.3) 3 2 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+          u = (6,(Movimenta E),(Estado (gera 7 6 0) [(Jogador 6 (4.4) 3 2 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+          v = (5,(Movimenta E),(Estado (gera 7 1 8) [(Jogador 4 (0.2) 3 2 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+          x = (1,(Acelera),(Estado (gera 3 5 1) [(Jogador 3 (1.7) 3 2 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+          y = (4,(Desacelera),(Estado (gera 6 1 8) [(Jogador 1 (0.6) 3 2 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+          z = (0,(Dispara),(Estado (gera 2 6 3) [(Jogador 0 (4.1) 3 2 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+          aa = (1,(Dispara),(Estado (gera 4 2 5) [(Jogador 2 (1.9) 3 2 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+          bb = (5,(Dispara),(Estado (gera 6 3 4) [(Jogador 4 (2.5) 3 2 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+          cc = (2,(Dispara),(Estado (gera 3 6 9) [(Jogador 1 (4.7) 3 2 (Morto (1))),(Jogador 0 5 3 2 (Chao True))]))
+
+
+
+encontrapista :: Int -> Mapa -> Pista
+encontrapista i [] = []
+encontrapista i ((x:xs):t) =
+    if i==0 then (x:xs)
+    else encontrapista (i-1) (t)
+
+encontrapeca :: Int -> Pista -> Peca
+encontrapeca dj (x:xs) = 
+    if dj<1 then x
+    else encontrapeca (dj-1) (xs)
+
+alteraPeca :: Peca -> Peca
+alteraPeca (Recta piso x) = Recta Cola x
+alteraPeca (Rampa piso x y) = Rampa Cola x y
+
+alteraPista :: Int -> Pista -> Peca -> Pista
+alteraPista dj (x:xs) p = 
+    if dj<1 then (p:xs)
+    else (x:(alteraPista (dj-1) (xs) p))
+
+alteraMapa :: Int -> Mapa -> Pista -> Mapa
+alteraMapa i [] p = []
+alteraMapa i ((x:xs):t) p =
+    if i==0 then (p:t)
+    else ((x:xs):(alteraMapa i (t) p))
+
+
+-- Função que verifica se o jogador está no Ar.
+-- Se sim, é True. Caso contrário, é False.
+estaAr :: Int -> [Jogador] -> Bool
+estaAr _ [] = False
+estaAr x ((Jogador pj dj vj cj (Chao acj)):xs) = 
+    if x==0 then False
+    else (estaAr (x-1) xs)
+estaAr x ((Jogador pj dj vj cj (Morto tj):xs)) = 
+    if x==0 then False
+    else (estaAr (x-1) xs)
+estaAr x ((Jogador pj dj vj cj (Ar aj ij gj)):xs) = 
+    if x==0 then True
+    else (estaAr (x-1) xs)
+
+
+-- Função que altera o EstadoJogador do Jogador, diminuindo a sua inclinação
+-- j é o jogador. Ex.: Se j=1, então é o jogador1
+movimentaD :: Int -> [Jogador] -> [Jogador]
+movimentaD _ [] = []
+movimentaD j ((Jogador pj dj vj cj (Ar aj ij gj)):xs) = 
+    if j==0
+    then if (ij-15)>=(-90)
+         then ((Jogador pj dj vj cj (Ar aj (ij-15) gj)):xs)
+         else ((Jogador pj dj vj cj (Ar aj (-90) gj)):xs)
+    else if j>0
+         then (Jogador pj dj vj cj (Ar aj ij gj)):(movimentaD (j-1) xs)
+         else ((Jogador pj dj vj cj (Ar aj ij gj)):xs)
+
+
+-- Função que faz o mesmo que a movimentaD.
+-- Contudo, esta função aumenta a inclinação do jogador.
+movimentaE :: Int -> [Jogador] -> [Jogador]
+movimentaE _ [] = []
+movimentaE j ((Jogador pj dj vj cj (Ar aj ij gj)):xs) = 
+    if j==0
+    then if (ij+15)<=(90)
+         then ((Jogador pj dj vj cj (Ar aj (ij+15) gj)):xs)
+         else ((Jogador pj dj vj cj (Ar aj (90) gj)):xs)
+    else if j>0
+         then (Jogador pj dj vj cj (Ar aj ij gj)):(movimentaE (j-1) xs)
+         else ((Jogador pj dj vj cj (Ar aj ij gj)):xs)
+
+
+-- Função que verifica se o jogador está no Chao.
+-- Se sim, é True. Caso contrário, é False.
+-- x é o identificador do jogador.
+estaChao :: Int -> [Jogador] -> Bool
+estaChao _ [] = False
+estaChao x ((Jogador pj dj vj cj (Chao acj)):xs) = 
+    if x==0 then True
+    else (estaChao (x-1) xs)
+estaChao x ((Jogador pj dj vj cj (Morto tj):xs)) = 
+    if x==0 then False
+    else (estaChao (x-1) xs)
+estaChao x ((Jogador pj dj vj cj (Ar aj ij gj)):xs) = 
+    if x==0 then False
+    else (estaChao (x-1) xs)
+
+
+mixTudoC :: Int -> Mapa -> [Jogador] -> [Jogador]
+mixTudoC x m [] = []
+mixTudoC x m ((Jogador pj dj vj cj ej):xs) =
+    if x==0
+    then if pj==0
+         then ((Jogador pj dj vj cj ej):xs)
+         else if (dA)<= (2/10) && (dA) >= (-2/10)
+              then ((Jogador (pj-1) dj vj cj ej):xs)
+              else if (qa)<(qpe)
+                   then ((Jogador pj dj vj cj (Morto 1.0)):xs)
+                   else ((Jogador (pj-1) dj vj cj (Ar (qa) (inc (oe)) 0)):xs)
+    else ((Jogador pj dj vj cj ej):(mixTudoC (x-1) m xs))
+
+   where dA = difA x m ((Jogador pj dj vj cj ej):xs)
+         qa = qalturaj (ondeestas x m ((Jogador pj dj vj cj ej):xs))
+         oe = ondeestas x m ((Jogador pj dj vj cj ej):xs)
+         qpe = qalturaj (qpeca (pj-1) (floor dj) m)
+
+
+-- Função que calcula a diferença de alturas.
+difA :: Int -> Mapa -> [Jogador] -> Double
+difA x m [] = 0
+difA x m ((Jogador pj dj vj cj ej):xs) = 
+    if x==1
+    then (qa-qac)
+    else difA (x-1) m (xs)
+
+ where qa = qalturaj (ondeestas x m ((Jogador pj dj vj cj ej):xs))
+       qac = qalturaj (qpeca (pj-1) (floor dj) m)
+
+
+-- Função que determina a altura do jogador
+qalturaj :: Peca -> Double
+qalturaj (Recta piso x) = (fromIntegral x)
+qalturaj (Rampa piso x y) = ((fromIntegral y)-(fromIntegral x))
+
+
+-- Função que determina a peça onde o jogador está.
+-- j == jogador
+ondeestas :: Int -> Mapa -> [Jogador] -> Peca
+ondeestas j ((x:t):ts) ((Jogador pj dj vj cj ej):xs) =
+    if j==1
+    then if pj==1
+         then if dj>=0 && dj<=1
+              then x
+              else ondeestas j ((t):ts) ((Jogador pj (dj-1) vj cj ej):xs)
+         else ondeestas j (ts) ((Jogador (pj-1) dj vj cj ej):xs)
+    else ondeestas j ((x:t):ts) (xs) 
+
+
+-- Função que determina a peça da pista acima da do jogador
+-- p = pista ; dj = distância do jogador
+qpeca :: Int -> Int -> Mapa -> Peca
+qpeca p dj [] = (Recta Terra 0)
+qpeca p dj ((x:xs):t) =
+    if p==1
+    then if dj<=1
+         then x
+         else qpeca p (dj-1) ((xs):t)
+    else qpeca (p-1) dj t
+
+
+-- * Função que calcula a inclinação.
+-- Seja x a altura inicial e y a altura final. O comprimento de uma peça é 1
+-- Seja A e B dois pontos, em que A=(a;x) e B=(b;y)
+-- O declive da reta que passa por estes dois pontos será dado por ((y-x)/(b-a))
+-- Como o comprimento da peça é 1, (b-a)=1. 
+-- Logo o declive é (y-x). A inclinação desta reta é dada pelo arctan (y-x)
+inc :: Peca -> Double 
+inc (Recta piso x) = 0
+inc (Rampa piso x y) = atan ((fromIntegral y)-(fromIntegral x))
+
+
+mixTudoB :: Int -> Mapa -> [Jogador] -> [Jogador]
+mixTudoB x m [] = []
+mixTudoB x m ((Jogador pj dj vj cj ej):xs) =
+    if x==0
+    then if pj== ((findnpistas m)-1)
+         then ((Jogador pj dj vj cj ej):xs)
+         else if (dA)<= (2/10) && (dA) >= (-2/10)
+              then ((Jogador (pj+1) dj vj cj ej):xs)
+              else if (qa)<(qpe)
+                   then ((Jogador (pj) dj vj cj (Morto 1.0)):xs)
+                   else ((Jogador (pj+1) dj vj cj (Ar (qalturaj (oe)) (inc (oe)) 0)):xs)
+    else ((Jogador pj dj vj cj ej):(mixTudoB (x-1) m xs))
+
+   where dA = difA x m ((Jogador pj dj vj cj ej):xs)
+         qa = qalturaj (ondeestas x m ((Jogador pj dj vj cj ej):xs))
+         oe = ondeestas x m ((Jogador pj dj vj cj ej):xs)
+         qpe = qalturaj (qpeca (pj-1) (floor dj) m)
+
+
+-- Função que encontra o número de pistas num mapa.
+findnpistas :: Mapa -> Int
+findnpistas [] = 0
+findnpistas ((x:xs):t) = 1+(findnpistas t)
+
+
+-- Função que altera o estado do jogador de Chao False para True
+-- Se o estado do jogador for Chao True, o estado mantém-se
+chaoTrue :: Int -> [Jogador] -> [Jogador]
+chaoTrue x [] = []
+chaoTrue x ((Jogador pj dj vj cj ej):xs) =
+    if x==0
+    then ((Jogador pj dj vj cj (Chao True)):xs)
+    else chaoTrue (x-1) (xs)
+
+
+-- Função que altera o estado do jogador de Chao True para False
+-- Se o estado do jogador for Chao False, o estado mantém-se
+chaoFalse :: Int -> [Jogador] -> [Jogador]
+chaoFalse x [] = []
+chaoFalse x ((Jogador pj dj vj cj ej):xs) =
+    if x==0
+    then ((Jogador pj dj vj cj (Chao False)):xs)
+    else chaoFalse (x-1) (xs)
+
+
+-- * Funções principais da Tarefa 2.
+-- | Efetua uma jogada.
+-- * jogada x D : diminui 15 graus a inclinação do jogador.
+-- / Primeiramente verifica se x==1, depois se está no Ar, e, se tudo estiver correto, altera.
+
+-- * jogada x E : diminui 15 graus a inclinação do jogador.
+-- / Primeiramente verifica se x==1, depois se está no Ar, e, se tudo estiver correto, altera.
+
+-- * jogada x C : jogador sobe de pista.
+-- / Primeiramente verifica se x==1, depois se está no chão e 
+-- / se o módulo das diferenças de altura é menor que 0.2. Se tudo estiver correto, muda de pista.
+
+-- * jogada x B : jogador sobe de pista.
+-- / Primeiramente verifica se x==1, depois se está no chão e 
+-- / se o módulo das diferenças de altura é menor que 0.2. Se tudo estiver correto, muda de pista.
+
+-- m=mapa ; pj=pistaJogador ; dj=distanciaJogador ; 
+-- vj=velocidadeJogador ; cj=colajogador ; ej=estadoJogador ;
+-- aj=alturajogador ; ij=inclinaçãojogador ; gj=gravidadeJogador ;
+-- tj=timeoutJogador ; acj=aceleraJogador.
+
+jogada :: Int -- ^ O identificador do 'Jogador' que efetua a jogada.
+       -> Jogada -- ^ A 'Jogada' a efetuar.
+       -> Estado -- ^ O 'Estado' anterior.
+       -> Estado -- ^ O 'Estado' resultante após o jogador efetuar a jogada.
+jogada _ _ (Estado m []) = (Estado m [])
+jogada x (Movimenta D) (Estado m (j:js)) =
+    if x==0
+    then if estaAr x (j:js) == True
+         then (Estado m (movimentaD x (j:js)))
+         else (Estado m (j:js))
+    else if estaAr (x-1) (js) == True
+         then (Estado m (j:(movimentaD (x-1) js)))
+    else (Estado m (j:js))
+jogada x (Movimenta E) (Estado m (j:js)) =
+    if x==0 
+    then if estaAr x (j:js) == True
+         then (Estado m (movimentaE x (j:js)))
+         else (Estado m (j:js))
+    else if estaAr (x-1) (js) == True
+         then (Estado m (j:(movimentaE (x-1) js)))
+    else (Estado m (j:js))
+jogada x (Movimenta C) (Estado m ((Jogador pj dj vj cj ej):xs)) =
+    if estaChao x ((Jogador pj dj vj cj ej):xs)==True
+    then (Estado m (mixTudoC x m ((Jogador pj dj vj cj ej):xs)))
+    else (Estado m ((Jogador pj dj vj cj ej):xs))
+jogada x (Movimenta B) (Estado m ((Jogador pj dj vj cj ej):xs)) =
+    if estaChao x ((Jogador pj dj vj cj ej):xs)==True
+    then (Estado m (mixTudoB x m ((Jogador pj dj vj cj ej):xs)))
+    else (Estado m ((Jogador pj dj vj cj ej):xs))
+jogada x (Acelera) (Estado m ((Jogador pj dj vj cj ej):xs)) =
+    if estaChao x ((Jogador pj dj vj cj ej):xs)==True
+    then (Estado m (chaoTrue x ((Jogador pj dj vj cj ej):xs)))
+    else (Estado m ((Jogador pj dj vj cj ej):xs))
+jogada x (Desacelera) (Estado m ((Jogador pj dj vj cj ej):xs)) =
+    if estaChao x ((Jogador pj dj vj cj ej):xs)==True
+    then (Estado m (chaoFalse x ((Jogador pj dj vj cj ej):xs)))
+    else (Estado m ((Jogador pj dj vj cj ej):xs))
+jogada x (Dispara) (Estado m ((Jogador pj dj vj cj ej):xs)) =
+    if estaChao x ((Jogador pj dj vj cj ej):xs)==True
+    then Estado (ea) ((Jogador pj dj vj (cj-1) ej):xs)
+    else (Estado m ((Jogador pj dj vj cj ej):xs))
+
+ where ea = (alteraMapa x m (alteraPista (floor dj) (encontrapista x m) (ap)))
+       ap = alteraPeca (encontrapeca (floor dj) (encontrapista x m))

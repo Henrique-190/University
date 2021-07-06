@@ -1,0 +1,110 @@
+-- | Este módulo define funções comuns da Tarefa 2 do trabalho prático.
+module Tarefa1_2019li1g009 where
+
+import LI11920
+import System.Random
+
+-- * Testes
+
+-- | Testes unitários da Tarefa 1.
+--
+-- Cada teste é um triplo (/número de 'Pista's/,/comprimento de cada 'Pista' do 'Mapa'/,/semente de aleatoriedades/).
+testesT1 :: [(Int,Int,Int)]
+testesT1 = [(2,9,0),(1,1,1),(4,2,2),(3,7,3),(10,10,4),(2,6,5),(9,6,6),(17,6,7),(2,2,8),(3,6,9),(4,2,10),(80,80,80),(9,3,5),(20,20,20),(80,1,2),(12,13,14),(14,13,12),(3,3,3)]
+
+
+-- * Funções pré-definidas da Tarefa 1.
+geraAleatorios :: Int -> Int -> [Int]
+geraAleatorios n seed = take n (randomRs (0,9) (mkStdGen seed))
+
+
+-- * Função que divide uma lista de números numa lista de pares.
+-- Faz com que, por exemplo, [1,2,3,4] fique [(1,2),(3,4)].
+dividePar :: [Int] -> [(Int,Int)]
+dividePar [] = []
+dividePar (x:y:xs) = (x,y):(dividePar xs)
+
+
+-- * Função que divide a lista de pares em lista de lista de pares, de modo a formar pistas.
+-- O comprimento de uma lista de pares fica igual ao (comprimento da pista-1).
+-- Era obrigatório colocar uma exceção para quando o comprimento da peça fosse 1, senão daria erro.
+-- No caso de comp=1, esta função já forma uma pista.
+-- Remove 1 unidade ao comprimento, dado que a primeira peça já está definida (Recta Terra 0).
+-- comp = comprimento da pista.
+divideP :: [(Int,Int)] -> Int -> [[(Int,Int)]]
+divideP [] comp = []
+divideP l 1 = (dividePAux l 1):(divideP resto 1)
+ where resto = (drop 1 l)
+divideP l comp = (dividePAux l (comp-1)):(divideP restante comp)
+ where restante = (drop (length (dividePAux l (comp-1))) l)
+
+-- * Função que forma uma pista, quando comp>1.
+-- Exemplo: [(1,2),(3,4),(5,4),(7,9)] 2 = [[(1,2),(3,4)],[(5,4),(7,9)]].
+dividePAux :: [(Int,Int)] -> Int -> [(Int,Int)]
+dividePAux l 0 = []
+dividePAux [] comp = []
+dividePAux ((x,y):ys) 1 = [(x,y)]
+dividePAux ((x,y):ys) comp = (x,y):(dividePAux ys (comp-1))
+
+
+-- * Função que adiciona (0,6), ou seja, Recta Terra 0, que é a primeira peça de uma pista, às várias pistas.
+-- Exemplo: [[(1,2),(3,4)],[(5,4),(7,9)]] 2 = [[(0,6),(1,2),(3,4)],[(0,6),(5,4),(7,9)]].
+-- Há a exceção de quando o comprimento é 1. Neste caso, a única peça existente de uma pista é Recta Terra 0.
+addZero :: [[(Int,Int)]] -> Int -> [[(Int,Int)]]
+addZero [] 1 = [[(0,6)]]
+addZero [] comp = []
+addZero (((a,b):xs):l) comp = [[(0,6)]++((a,b):xs)]++(addZero l comp)
+
+
+-- * Função que define o tipo de piso.
+-- p é o piso anterior.
+pisoAux :: [(Int,Int)] -> Piso -> [Piso]
+pisoAux [] p = []
+pisoAux ((x,y):t) p = if x==0 || x==1 then Terra:(pisoAux t Terra)
+    else if x==2 || x==3 then Relva:(pisoAux t Relva)
+    else if x==4 then Lama:(pisoAux t Lama)
+    else if x==5 then Boost:(pisoAux t Boost)
+    else p:(pisoAux t p)
+
+
+-- * Função que adiciona o acumulador "0", de modo a definir todas as alturas. 
+-- A primeira altura de uma pista será sempre 0.
+altura :: [(Int,Int)] -> [Peca]
+altura [] = []
+altura ((x,y):t) = alturaAux ((x,y):t) 0
+
+-- * Função que define a altura da primeira peça de cada pista.
+-- Só existe um caso: quando o "a" é 0, dado que estamos a falar da primeira pista.
+alturaAux :: [(Int,Int)] -> Int -> [Peca]
+alturaAux [] a = []
+alturaAux ((x,y):t) 0 = (Recta Terra 0):(alturaAux2 t 0 (pisoAux t Terra))
+
+-- * Função que define as alturas das restantes peças da pista.
+-- "a" é a altura anterior.
+-- "p" é a lista de pisos.
+alturaAux2 :: [(Int,Int)] -> Int -> [Piso] -> [Peca]
+alturaAux2 [] a p = []
+alturaAux2 ((x,y):t) a p
+    | y==0 || y==1 = (Rampa (hp) a (a+y+1)):(alturaAux2 t (a+y+1) (pi))
+    | a==0 && y>=2 && y<=5 = (Recta (hp) a):(alturaAux2 t a (pi))
+    | y>=2 && y<=5 && (a-y+1)<0 = (Rampa (hp) a 0):(alturaAux2 t 0 (pi))
+    | y>=2 && y<=5 = (Rampa (hp) a (a-y+1)):(alturaAux2 t (a-y+1) (pi))
+    | otherwise = (Recta (hp) a):(alturaAux2 t a (pi))
+
+-- hp dá a "cabeça" de pi.
+-- pi define o piso da lista, sendo que "head p" é a "cabeça" da lista de pisos.
+   where hp = head pi
+         pi = (pisoAux ((x,y):t) (head p))
+
+
+-- * Funções principais da Tarefa 1.
+-- npistas = número de pistas ; comp = comprimento da pista.
+gera :: Int -> Int -> Int -> Mapa
+gera 0 _ _ = []
+gera npistas 1 semente = ([Recta Terra 0]):(gera (npistas-1) 1 semente)
+gera npistas comp semente = map altura (addZero pistaPar comp)
+
+-- gA é a função que gera números pseudo-aleatórios, de acordo com o npistas, o comp e a semente.
+-- pistaPar é o conjunto das várias funções definidas anteriormente.
+ where gA = (geraAleatorios (2*(comp-1)*npistas) semente)
+       pistaPar = (divideP (dividePar (gA)) comp)

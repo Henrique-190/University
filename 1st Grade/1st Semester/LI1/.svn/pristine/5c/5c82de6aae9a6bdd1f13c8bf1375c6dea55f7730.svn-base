@@ -1,0 +1,69 @@
+-- | Este módulo define funções comuns da Tarefa 2 do trabalho prático.
+module Tarefa2_2019li1g009 where
+
+import LI11920
+import Tarefa1_2019li1g009
+
+-- * Testes
+
+-- | Testes unitários da Tarefa 2.
+--
+-- Cada teste é um triplo (/identificador do 'Jogador'/,/'Jogada' a efetuar/,/'Estado' anterior/).
+testesT2 :: [(Int,Jogada,Estado)]
+testesT2 = []
+
+-- Dúvida sobre quando x não é igual a pj
+-- dir é a função que define a direção
+dir :: Int -> Direcao -> Estado -> Estado
+dir _ _ (Estado m []) = (Estado m [])
+dir x D (Estado m ((Jogador pj dj vj cj ej):xs)) = 
+    if estaAr ((Jogador pj dj vj cj ej):xs) == True
+    then (Estado m (movimentaD x ((Jogador pj dj vj cj ej):xs)))
+    else (Estado m ((Jogador pj dj vj cj ej):xs))
+dir x E (Estado m ((Jogador pj dj vj cj ej):xs)) = 
+    if estaAr ((Jogador pj dj vj cj ej):xs) == True
+    then (Estado m (movimentaE x ((Jogador pj dj vj cj ej):xs)))
+    else (Estado m ((Jogador pj dj vj cj ej):xs))
+
+-- Função que verifica se o jogador está no Ar. Se sim, é True. Caso Contrário, é False
+estaAr :: [Jogador] -> Bool
+estaAr [] = False
+estaAr ((Jogador pj dj vj cj (Ar aj ij gj)):xs) = True
+estaAr ((Jogador pj dj vj cj (Morto tj):xs)) = False 
+estaAr ((Jogador pj dj vj cj (Chao acj)):xs) = False
+
+-- Função que altera o EstadoJogador do Jogador.
+-- Diminui a sua inclinação
+-- x é o jogador. Ex.: Se x=1, então é o jogador1
+movimentaD :: Int -> [Jogador] -> [Jogador]
+movimentaD x [] = []
+movimentaD x ((Jogador pj dj vj cj (Ar aj ij gj)):xs) = 
+    if x==1 
+    then if (ij-15)>=(-90)
+         then ((Jogador pj dj vj cj (Ar aj (ij-15) gj)):xs)
+         else ((Jogador pj dj vj cj (Ar aj (-90) gj)):xs)
+    else (Jogador pj dj vj cj (Ar aj ij gj)):(movimentaD (x-1) xs)
+
+-- Função que faz o mesmo que a movimentaD. 
+-- Contudo, esta função aumenta a inclinação do jogador
+movimentaE :: Int -> [Jogador] -> [Jogador]
+movimentaE x [] = []
+movimentaE x ((Jogador pj dj vj cj (Ar aj ij gj)):xs) = 
+    if x==1 
+    then if (ij+15)<=(90)
+         then ((Jogador pj dj vj cj (Ar aj (ij+15) gj)):xs)
+         else ((Jogador pj dj vj cj (Ar aj (90) gj)):xs)
+    else (Jogador pj dj vj cj (Ar aj ij gj)):(movimentaE (x-1) xs)
+
+-- * Funções principais da Tarefa 2.
+
+-- | Efetua uma jogada.
+jogada :: Int -- ^ O identificador do 'Jogador' que efetua a jogada.
+       -> Jogada -- ^ A 'Jogada' a efetuar.
+       -> Estado -- ^ O 'Estado' anterior.
+       -> Estado -- ^ O 'Estado' resultante após o jogador efetuar a jogada.
+jogada = undefined
+
+
+
+

@@ -1,0 +1,450 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="io__aux_8h" kind="file" language="C++">
+    <compoundname>io_aux.h</compoundname>
+    <includes refid="dados_8h" local="yes">dados.h</includes>
+    <includes refid="listas_8h" local="yes">listas.h</includes>
+    <includedby refid="io_8c" local="yes">io.c</includedby>
+    <includedby refid="io__aux_8c" local="yes">io_aux.c</includedby>
+    <includedby refid="logica_8c" local="yes">logica.c</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>listas.h</label>
+        <link refid="listas_8h"/>
+      </node>
+      <node id="1">
+        <label>io_aux.h</label>
+        <link refid="io__aux_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>dados.h</label>
+        <link refid="dados_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>io.c</label>
+        <link refid="io_8c"/>
+      </node>
+      <node id="4">
+        <label>logica.c</label>
+        <link refid="logica_8c"/>
+      </node>
+      <node id="3">
+        <label>io_aux.c</label>
+        <link refid="io__aux_8c"/>
+      </node>
+      <node id="1">
+        <label>io_aux.h</label>
+        <link refid="io__aux_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="io__aux_8h_1a51e6aa0ed978abab4422df738531b7ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int area_par</definition>
+        <argsstring>(ESTADO *etemp, COORDENADA c)</argsstring>
+        <name>area_par</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>etemp</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Função que verifica se, apos jogar uma coordenada, o numero de jogadas possiveis é par. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>etemp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>estado temporário para testes; </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>coordenada dada. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Verdadeiro ou falso. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="io_aux.h" line="19" column="5" bodyfile="io_aux.c" bodystart="9" bodyend="12" declfile="io_aux.h" declline="19" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="io__aux_8h_1aa8719fa8c8f8fb77e26a029608a2be14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="listas_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
+        <definition>LISTA area_par_possivel</definition>
+        <argsstring>(LISTA l, ESTADO *e)</argsstring>
+        <name>area_par_possivel</name>
+        <param>
+          <type><ref refid="listas_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Função que cria uma lista com as coordenadas em que, se forem jogadas o numero de jogadas possíveis do jogador adversário, fica um número par. Contudo, se não houver estes casos retorna uma lista com coordenadas possíveis de jogar. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>lista; </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>estado do jogo. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Lista. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="io_aux.h" line="30" column="7" bodyfile="io_aux.c" bodystart="15" bodyend="32" declfile="io_aux.h" declline="30" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="io__aux_8h_1aec7e4adfc2da77a07d18b65fd2777f19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int compara_coord</definition>
+        <argsstring>(COORDENADA c, ESTADO *e)</argsstring>
+        <name>compara_coord</name>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Função que compara se uma coordenada é igual a uma coordenada favorável. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Coordenada da lista; </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>*e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estado do jogo. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Verdadeiro ou Falso. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="io_aux.h" line="39" column="5" bodyfile="io_aux.c" bodystart="35" bodyend="41" declfile="io_aux.h" declline="39" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="io__aux_8h_1a66daa84cc18f7f5ad56aa9572a240800" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int coordenada_valida</definition>
+        <argsstring>(COORDENADA c)</argsstring>
+        <name>coordenada_valida</name>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Função que verifica se a coordenada é válida. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Coordenada. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Verdadeiro ou falso. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="io_aux.h" line="47" column="5" bodyfile="io_aux.c" bodystart="44" bodyend="46" declfile="io_aux.h" declline="47" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="io__aux_8h_1a50a11c8f5ea477c3d3a82bf18d93cf47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="listas_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
+        <definition>LISTA hipord</definition>
+        <argsstring>(LISTA l, ESTADO *e)</argsstring>
+        <name>hipord</name>
+        <param>
+          <type><ref refid="listas_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Função que elimina as jogadas não possíveis. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lista de todas as jogadas; </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>*e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estado do jogo; </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Uma lista com todas as jogadas possíveis. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="io_aux.h" line="56" column="7" bodyfile="io_aux.c" bodystart="49" bodyend="72" declfile="io_aux.h" declline="56" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="io__aux_8h_1a6a6c6e37440634bfe10939149f395678" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int jogada_favoravel</definition>
+        <argsstring>(LISTA l, ESTADO *e)</argsstring>
+        <name>jogada_favoravel</name>
+        <param>
+          <type><ref refid="listas_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Função que verifica se a coordenada é jogável para as coordenadas mais favoráveis. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lista das jogadas possíveis; </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>*e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estado do jogo. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Verdadeiro ou falso. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="io_aux.h" line="65" column="5" bodyfile="io_aux.c" bodystart="75" bodyend="91" declfile="io_aux.h" declline="65" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="io__aux_8h_1aae48f047d9481099998f95842de5918a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="listas_8h_1a853ddea61d450761bc94933207e4833d" kindref="member">LISTA</ref></type>
+        <definition>LISTA l_coord_adj</definition>
+        <argsstring>(COORDENADA ultcord, int jogador)</argsstring>
+        <name>l_coord_adj</name>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>ultcord</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>jogador</declname>
+        </param>
+        <briefdescription>
+<para>Função que cria uma lista com todas as coordenadas adjacentes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ultcord</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Última coordenada do jogador; </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>jogador</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Número do jogador. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Lista. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="io_aux.h" line="74" column="7" bodyfile="io_aux.c" bodystart="94" bodyend="112" declfile="io_aux.h" declline="74" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="io__aux_8h_1ae6bb329908cc765fe6ff8321c4f281c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+        <definition>COORDENADA str_to_coord</definition>
+        <argsstring>(const char *coordenada)</argsstring>
+        <name>str_to_coord</name>
+        <param>
+          <type>const char *</type>
+          <declname>coordenada</declname>
+        </param>
+        <briefdescription>
+<para>Função que transforma uma string em coordenada. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>*coordenada</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>String do tipo letra-numero. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Coordenada. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="io_aux.h" line="82" column="12" bodyfile="io_aux.c" bodystart="115" bodyend="118" declfile="io_aux.h" declline="82" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="io__aux_8h_1a96815a1a2a72414ab5cb4eb0194107d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int verifica_fim_jogo</definition>
+        <argsstring>(ESTADO *etemp, COORDENADA c)</argsstring>
+        <name>verifica_fim_jogo</name>
+        <param>
+          <type><ref refid="structESTADO" kindref="compound">ESTADO</ref> *</type>
+          <declname>etemp</declname>
+        </param>
+        <param>
+          <type><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Função que verifica se, com a jogada feita, o jogo acaba. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>*etemp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estado temporário que serve para testes; </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Coordenada que é jogada. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Verdadeiro ou falso. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="io_aux.h" line="90" column="5" bodyfile="io_aux.c" bodystart="121" bodyend="124" declfile="io_aux.h" declline="90" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Funções auxiliares dos comandos. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>RASTROSLI2_IO_AUX_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RASTROSLI2_IO_AUX_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="dados_8h" kindref="compound">dados.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="listas_8h" kindref="compound">listas.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="io__aux_8h_1a51e6aa0ed978abab4422df738531b7ee" kindref="member">area_par</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*etemp,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="io__aux_8h_1aa8719fa8c8f8fb77e26a029608a2be14" kindref="member">area_par_possivel</ref><sp/>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l,<sp/><ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="io__aux_8h_1aec7e4adfc2da77a07d18b65fd2777f19" kindref="member">compara_coord</ref>(<ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c,<sp/><ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="io__aux_8h_1a66daa84cc18f7f5ad56aa9572a240800" kindref="member">coordenada_valida</ref>(<ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="io__aux_8h_1a50a11c8f5ea477c3d3a82bf18d93cf47" kindref="member">hipord</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l,<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="io__aux_8h_1a6a6c6e37440634bfe10939149f395678" kindref="member">jogada_favoravel</ref>(<ref refid="structnodo" kindref="compound">LISTA</ref><sp/>l,<sp/><ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*e);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><ref refid="structnodo" kindref="compound">LISTA</ref><sp/><ref refid="io__aux_8h_1aae48f047d9481099998f95842de5918a" kindref="member">l_coord_adj</ref><sp/>(<ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>ultcord,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>jogador);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/><ref refid="io__aux_8h_1ae6bb329908cc765fe6ff8321c4f281c2" kindref="member">str_to_coord</ref><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*coordenada);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="io__aux_8h_1a96815a1a2a72414ab5cb4eb0194107d6" kindref="member">verifica_fim_jogo</ref>(<ref refid="structESTADO" kindref="compound">ESTADO</ref><sp/>*etemp,<sp/><ref refid="structCOORDENADA" kindref="compound">COORDENADA</ref><sp/>c);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//RASTROSLI2_IO_AUX_H</highlight></codeline>
+    </programlisting>
+    <location file="io_aux.h"/>
+  </compounddef>
+</doxygen>

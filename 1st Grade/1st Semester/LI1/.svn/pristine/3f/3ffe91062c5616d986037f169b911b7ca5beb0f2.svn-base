@@ -1,0 +1,78 @@
+-- | Este módulo define funções comuns da Tarefa 4 do trabalho prático.
+module Tarefa4_2019li1g009 where
+
+import LI11920
+import Tarefa0_2019li1g009
+import Tarefa1_2019li1g009
+import Tarefa2_2019li1g009
+import Tarefa3_2019li1g009
+
+-- * Testes
+-- | Testes unitários da Tarefa 4.
+--
+-- Cada teste é um par (/tempo/,/'Mapa'/,/'Jogador'/).
+testesT4 :: [(Double,Mapa,Jogador)]
+testesT4 = []
+
+-- * Funções principais da Tarefa 4.
+
+-- | Avança o estado de um 'Jogador' um 'passo' em frente, durante um determinado período de tempo.
+passo :: Double -- ^ O tempo decorrido.
+     -> Mapa    -- ^ O mapa utilizado.
+     -> Jogador -- ^ O estado anterior do 'Jogador'.
+     -> Jogador -- ^ O estado do 'Jogador' após um 'passo'.
+passo t m j = move t m (acelera t m j)
+
+-- | Altera a velocidade de um 'Jogador', durante um determinado período de tempo.
+acelera :: Double -- ^ O tempo decorrido.
+        -> Mapa    -- ^ O mapa utilizado.
+        -> Jogador -- ^ O estado anterior do 'Jogador'.
+        -> Jogador -- ^ O estado do 'Jogador' após acelerar.
+acelera = undefined
+
+-- | Altera a posição de 'Jogador', durante um determinado período de tempo.
+move :: Double -- ^ O tempo decorrido.
+     -> Mapa    -- ^ O mapa utilizado.
+     -> Jogador -- ^ O estado anterior do 'Jogador'.
+     -> Jogador -- ^ O estado do 'Jogador' após se movimentar.
+move = undefined
+
+
+
+
+-- Calcula a Velocidade no Chão
+calcVelChao :: Double -> Bool -> Peca -> Double
+calcVelChao vj (True) p = vj + (accelMota - (selAtrito p) * vj) * t 
+ where accelMota = if (vj < 2) then 1 else 0   
+calcVelChao vj (False) p = vj + (0 - (selAtrito p)* vj) * t
+ 
+
+velmen :: Double -> Bool -> Peca -> Double
+velmen vj b p
+ | (calcVelChao vj b p) >= 0 = (calcVelChao vj b p)
+ | otherwise = 0
+
+
+atualizaVel :: Int -> [Jogador] -> Mapa -> [Jogador]
+atualizaVel 0 ((Jogador pj dj vj cj (Chao b):xs)) m = ((Jogador pj dj vn cj (Chao b):xs))
+    where vn = (velmen vj b (ondeestas 0 m ((Jogador pj dj vj cj (Chao b):xs))))
+
+-- calcVelAr :: Calcula a Velocidade no Ar
+
+
+
+-- v' = v + (accelMota - selAtrito * v) * t
+-- accelMota = if (v < 2 && accelJogador) then 1 else 0   
+
+selAtrito :: Peca -> Double
+selAtrito (Recta piso x) = case piso of Terra -> (0.25)
+                                        Relva -> (0.75)
+                                        Lama -> (1.50)
+                                        Boost -> (-0.50)
+                                        Cola -> (3.00)
+selAtrito (Rampa piso x y) = case piso of Terra -> (0.25)
+                                          Relva -> (0.75)
+                                          Lama -> (1.50)
+                                          Boost -> (-0.50)
+                                          Cola -> (3.00)
+                              

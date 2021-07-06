@@ -1,0 +1,89 @@
+-- | Este módulo define funções comuns da Tarefa 2 do trabalho prático.
+module Tarefa1_2019li1g009 where
+
+import LI11920
+import System.Random
+
+-- * Testes
+
+-- | Testes unitários da Tarefa 1.
+--
+-- Cada teste é um triplo (/número de 'Pista's/,/comprimento de cada 'Pista' do 'Mapa'/,/semente de aleatoriedades/).
+testesT1 :: [(Int,Int,Int)]
+testesT1 = [(1,1,2),(4,2,9),(3,7,1),(10,10,3),(2,6,2),(9,6,5),(17,6,2),(2,2,2)]
+
+
+-- * Funções pré-definidas da Tarefa 1.
+geraAleatorios :: Int -> Int -> [Int]
+geraAleatorios n seed = take n (randomRs (0,9) (mkStdGen seed))
+
+
+-- * Função que divide a lista em pares
+dividePar :: [Int] -> [(Int,Int)]
+dividePar [] = []
+dividePar (x:y:xs) = (x,y):(dividePar xs)
+
+
+-- * Função que divide a lista de pares em lista de lista de pares, de modo a formar pistas
+-- Remove 1 unidade ao comprimento, dado que a primeira peça já está definida
+dividePista :: [(Int,Int)] -> Int -> [[(Int,Int)]]
+dividePista [] comprimento = []
+dividePista l 1 = (dividePistaAux l 1):(dividePista resto 1)
+ where resto = (drop 1 l)
+dividePista l comprimento = (dividePistaAux l (comprimento-1)):(dividePista restante comprimento)
+ where restante = (drop (length (dividePistaAux l (comprimento-1))) l)
+
+-- * Função que forma uma pista
+dividePistaAux :: [(Int,Int)] -> Int -> [(Int,Int)]
+dividePistaAux l 0 = []
+dividePistaAux [] comprimento = []
+dividePistaAux ((x,y):ys) 1 = [(x,y)]
+dividePistaAux ((x,y):ys) comprimento = (x,y):(dividePistaAux ys (comprimento-1))
+
+
+-- * Função que adiciona (0,6), ou seja, Piso Terra 0, que é a primeira peça de uma pista, às várias pistas.
+adicionaZeroPista :: [[(Int,Int)]] -> Int -> [[(Int,Int)]]
+adicionaZeroPista [] 1 = [[(0,6)]]
+adicionaZeroPista [] comprimento = []
+adicionaZeroPista (((a,b):xs):l) comprimento = [[(0,6)]++((a,b):xs)]++(adicionaZeroPista l comprimento)
+
+
+-- * Função que adiciona o acumulador "Terra", de modo a definir todos os pisos. O primeiro piso será sempre Terra
+pisotipo :: [(Int,Int)] -> [Piso]
+pisotipo [] = []
+pisotipo ((x,y):t) = pisotipoAux ((x,y):t) Terra
+
+-- * Função que define o tipo de piso
+pisotipoAux :: [(Int,Int)] -> Piso -> [Piso]
+pisotipoAux [] a = []
+pisotipoAux ((x,y):t) a
+    | x==0 || x==1 = Terra:(pisotipoAux t Terra)
+    | x==2 || x==3 = Relva:(pisotipoAux t Relva)
+    | x==4 = Lama:(pisotipoAux t Lama)
+    | x==5 = Boost:(pisotipoAux t Boost)
+    | otherwise = a:(pisotipoAux t a)
+
+
+-- * Função que adiciona o acumulador "0", de modo a definir todas as alturas.
+altura :: [(Int,Int)] -> [Peca]
+altura [] = []
+altura ((x,y):t) = alturaAux ((x,y):t) 0
+
+-- * Função que define a altura de todos os números.
+alturaAux :: [(Int,Int)] -> Int -> [Peca]
+alturaAux [] a = []
+alturaAux ((x,y):t) a
+    | y==0 || y==1 = (Rampa (head (pisotipo ((x,y):t))) a (a+y+1)):(alturaAux t a)
+    | a==0 && y>=2 && y<=5 = (Recta (head (pisotipo ((x,y):t))) a):(alturaAux t a)
+    | a==0 && y>=2 && y<=5 = (Recta (head (pisotipo ((x,y):t))) a):(alturaAux t a)
+    | y>=2 && y<=5 && (a-y-1)<0 = (Rampa (head (pisotipo ((x,y):t))) a 0):(alturaAux t a)
+    | y>=2 && y<=5 = (Rampa (head (pisotipo ((x,y):t))) a (a-y-1)):(alturaAux t a)
+    | otherwise = (Recta (head (pisotipo ((x,y):t))) a):(alturaAux t a)
+
+
+-- * Funções principais da Tarefa 1.
+gera :: Int -> Int -> Int -> Mapa
+gera npistas comprimento semente = map (altura) (adicionaZeroPista pistaPar comprimento)
+
+ where gA = (geraAleatorios (2*npistas*(comprimento-1)) semente)
+       pistaPar = (dividePista (dividePar (gA)) comprimento)

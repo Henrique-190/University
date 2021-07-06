@@ -1,0 +1,59 @@
+-- | Este módulo define funções comuns da Tarefa 3 do trabalho prático.
+module Tarefa3_2019li1g009 where
+
+import LI11920
+import Tarefa0_2019li1g009
+import Tarefa1_2019li1g009
+import Tarefa2_2019li1g009
+
+-- * Testes
+
+-- | Testes unitários da Tarefa 3.
+--
+-- Cada teste é um 'Mapa'.
+testesT3 :: [Mapa]
+testesT3 = []
+
+------------------------------------- Padrão horizontal -----------------------------------
+-- Função que divide o mapa em pistas
+-- int é o numero da pista
+padrao :: Mapa 
+       -> Int
+       -> Int
+       -> [([Peca],Int)]
+padrao [] a b = ([],a)
+padrao ((x:xs):t) a b | a==0 = [((x:xs),b)]++[padrao t (a+1) (b+1)]
+                      | otherwise = padrao t (a-1) b
+
+
+-- Função que transforma as peças em instruções
+-- p é o n da pista
+pecInstr :: ([Peca],Int) -> [Instrucao]
+pecInstr ([],a) = []
+pecInstr (((Recta piso x):xs),p) = (Anda [p] piso):(pecInstr (xs,p))
+pecInstr (((Rampa piso x y):xs),p) | (x-y)>0 = (Desce [p] piso (abs (x-y))):(pecInstr (xs,p))
+                                 | otherwise = (Sobe [p] piso (abs (y-x))):(pecInstr (xs,p))
+
+
+
+--------------------------------- Padrão Vertical--------------------------------------------------
+-- Função que faz a transposta do mapa (que é uma matriz)
+mapatransposto :: Mapa -> Mapa
+mapatransposto ([]:_) = []
+mapatransposto m = (map head m):mapatransposto (map tail m)
+
+
+pecInstrV :: ([Peca],Int) -> [Instrucao]
+pecInstrV ([],a) = []
+pecInstrV (((Recta piso x):xs),p) = (Anda [p] piso):(pecInstr (xs,(p+1)))
+pecInstrV (((Rampa piso x y):xs),p) | (x-y)>0 = (Desce [p] piso (abs (x-y))):(pecInstr (xs,(p+1)))
+                                    | otherwise = (Sobe [p] piso (abs (y-x))):(pecInstr (xs,(p+1)))
+-- * Funções principais da Tarefa 3.
+
+-- | Desconstrói um 'Mapa' numa sequência de 'Instrucoes'.
+--
+-- __NB:__ Uma solução correcta deve retornar uma sequência de 'Instrucoes' tal que, para qualquer mapa válido 'm', executar as instruções '(desconstroi m)' produza o mesmo mapa 'm'.
+--
+-- __NB:__ Uma boa solução deve representar o 'Mapa' dado no mínimo número de 'Instrucoes', de acordo com a função 'tamanhoInstrucoes'.
+desconstroi :: Mapa -> Instrucoes
+desconstroi m = map 

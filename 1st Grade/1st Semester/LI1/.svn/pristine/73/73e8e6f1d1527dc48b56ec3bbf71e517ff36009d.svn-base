@@ -1,0 +1,175 @@
+-- | Este módulo define funções comuns da Tarefa 6 do trabalho prático.
+module Tarefa6_2019li1g009 where
+
+import LI11920
+import Tarefa0_2019li1g009
+import Tarefa1_2019li1g009
+import Tarefa2_2019li1g009
+import Tarefa3_2019li1g009
+
+
+-- * Funções principais da Tarefa 6.
+
+-- | Define um ro'bot' capaz de jogar autonomamente o jogo.
+bot :: Int          -- ^ O identificador do 'Jogador' associado ao ro'bot'.
+    -> Estado       -- ^ O 'Estado' para o qual o ro'bot' deve tomar uma decisão.
+    -> Maybe Jogada -- ^ Uma possível 'Jogada' a efetuar pelo ro'bot'.
+bot x (Estado mapa jogadores) 
+    | estaMorto x jogadores = Nothing
+    | estAr x jogadores =
+        if inclinacao x jogadores > (-15)
+        then Just (Movimenta D)
+        else if inclinacao x jogadores < (-15)
+             then Just (Movimenta E)
+             else Nothing 
+    | estaChao x jogadores =
+        if altpos (pista (qualjogador x jogadores)) ((pista (qualjogador x jogadores))-parteB) (distancia (qualjogador x jogadores)) mapa
+        then Just (jogar (parteA) (parteB))
+        else if estacola || estalama
+             then if pisomelhor<-1
+                  then Just (Movimenta B)
+                  else if Just (Movimenta C)
+
+ where parteA = pista (qualjogador x jogadores)
+       parteB = melhorPeca (distancia (qualjogador x jogadores)) mapa
+
+ 
+melhorPeca :: Int -> Double -> Mapa -> Jogada
+melhorPeca pj dj m 
+ | pj== 0 = jogar pj (encontrapeca (valormenor (valo [peca,pecaabaixo])))
+ | pj==(findnpistas-1) = jogar pj (encontrapeca (valormenor (valo [pecaacima,peca])))
+ | otherwise = jogar pj (encontrapeca (valormenor (valo [pecaacima,peca,pecaabaixo])))
+ where pecaacima = whereu (pj-1) (elimina dj m)
+       peca = whereu pj (elimina dj m)
+       pecaabaixo = whereu (pj+1) (elimina dj m) 
+
+-- Dá a peça onde está o bot
+whereu :: Int -- ^ Pista onde está o bot 
+       -> Mapa 
+       -> Peca
+whereu pj ((h:t):xs) 
+    | pj==0 = h
+    | otherwise = whereu (pj-1) xs
+
+
+
+-- Tira o primeiro elemento da lista, para a função auxiliar
+valormenor :: [Int] -> Int
+valormenor (x:xs) = valormenorAux x xs
+
+-- Descobre o menor valor da pista
+valormenorAux :: Int -> [Int] -> Int
+valormenorAux x [] = x
+valormenorAux x (h:t) 
+    | x>h = valormenorAux h t
+    | otherwise = valormenorAux x t
+
+
+
+
+
+-- | Função que dá um valor:
+-- Se for menor que zero, então o bot tem de ir para a pista abaixo
+-- Se for igual a zero, o bot está na pista com a melhor peça
+-- Se for maior que zero, então o bot tem de ir para a pista acima
+jogar :: Int -> Int -> Jogada
+jogar pj x 
+    | (pj-x)<0 = (Movimenta B)
+    | (pj-x)==0 = (Acelera)
+    | otherwise = (Movimenta C)
+
+-- METER A dispara COLA!!!!!!!!!!
+-- METER CASOS ESPECIAIS, NOMEADAMENTE QUANDO ESTIVER EM COLA E ELE NÃO PODER IR PARA A MELHOR PEÇA, MEXÊ-LO PARA OUTRA QUE NÃO SEJA PIOR
+-- ALÉM DISSO, VERIFICAR QUANDO ESTÁ A SUBIR, PARA IR PARA OUTRA PEÇA EM QUE NÃO SE SOBE, MAS QUE TAMBÉM NÃO SEJA UM PISO PIOR
+
+-- | Dá a inclinação do jogador
+inclinacao :: Int -- ^ Identificador do Jogador 
+           -> [Jogador] -- ^ Lista de Jogadores
+           -> Double -- ^ Inclinação
+inclinacao x ((Jogador _ _ _ _ (Ar _ ij _)):xs)
+    | x==0 = ij
+    | otherwise = inclinacao (x-1) xs
+
+-- | Verifica se o jogador está no Ar
+estAr :: Int -> [Jogador] -> Bool
+estAr x ((Jogador _ _ _ _ (Ar _ _ _)):xs)
+    | x==0 = True
+    | otherwise = estAr (x-1) xs
+estAr x (h:t)
+    | x==0 = False
+    | otherwise = estAr (x-1) t
+estAr x [] = False
+
+-- | Função que verifica se o jogador está Morto.
+estaMorto :: Int -- ^ Identificador do jogador
+             -> [Jogador] -- ^ Lista de jogadores
+             -> Bool 
+estaMorto x ((Jogador _ _ _ _ (Morto _)):xs)
+    | x==0 = True
+    | otherwise = estaMorto (x-1) xs
+estaMorto x ((Jogador _ _ _ _ _):xs)
+    | x==0 = False
+    | otherwise = estaMorto (x-1) xs
+estaMorto x [] = False
+
+-- | Função que dá o jogador, de acordo com o identificador
+qualjogador :: Int -- ^ Identificador do jogador 
+            -> [Jogador] -- ^ Lista de jogadores
+            -> Jogador -- ^ Jogador
+qualjogador x (h:t) 
+ | x==0 = h
+ | otherwise = qualjogador (x-1) t
+
+
+
+
+
+
+
+-- | Função que encontra a melhor peça para o bot
+-- Escolhe a peça da pista acima, da prórpia pista ou da pista abaixo
+melhorPeca :: Double -- ^ distância do bot
+           -> Mapa
+           -> Int  -- ^ Pista para onde ele se tem de movimentar
+melhorPeca dj ((x:xs):t) = encontrapeca (valormenor atribvalores) atribvalores
+ where truemapa = elimina dj ((x:xs):t)
+       firstpecas = map head truemapa
+       atribvalores = valo firstpecas
+
+-- Desfaz o mapa em pistas
+elimina :: Double -- ^ Distância do jogador 
+        -> Mapa 
+        -> Mapa
+elimina dj [] = []
+elimina dj ((x:xs):t) = (eliminaAux dj (x:xs)):(elimina dj t)
+
+-- Refaz o mapa, de acordo com a distância do jogador 
+eliminaAux :: Double -- ^ Distância do jogador
+           -> Pista
+           -> Pista
+eliminaAux dj [] = []
+eliminaAux dj (x:xs)
+    | dj<1 = (x:xs)
+    | otherwise = eliminaAux (dj-1) xs
+
+-- Atribui valores a cada piso
+valo :: [Peca] -> [Int]
+valo [] = [0]
+valo ((Recta piso _):xs) 
+    | piso == Terra = 1:(valo xs)
+    | piso == Relva = 2:(valo xs)
+    | piso == Lama = 3:(valo xs)
+    | piso == Boost = 0:(valo xs)
+    | otherwise = 4:(valo xs)
+valo ((Rampa piso _ _):xs)
+    | piso == Terra = 1:(valo xs)
+    | piso == Relva = 2:(valo xs)
+    | piso == Lama = 3:(valo xs)
+    | piso == Boost = 0:(valo xs)
+    | otherwise = 4:(valo xs)
+
+-- Encontra a posição da lista de peças. Essa posição é a pista para onde ele vai/está
+encontrapeca :: Int -> [Int] -> Int
+encontrapeca x (h:t) 
+   | x==h = 0
+   | otherwise = 1+(encontrapeca x t)

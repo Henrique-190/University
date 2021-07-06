@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structCOORDENADA" kind="struct" language="C++" prot="public">
+    <compoundname>COORDENADA</compoundname>
+    <includes refid="dados_8h" local="no">dados.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structCOORDENADA_1ac241af99d2fb991831964fb94b86c7de" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>COORDENADA::coluna</definition>
+        <argsstring></argsstring>
+        <name>coluna</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Coluna da coordenada. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dados.h" line="45" column="9" bodyfile="dados.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structCOORDENADA_1a369e9a4d96b7450bbc640fe737db2977" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>COORDENADA::linha</definition>
+        <argsstring></argsstring>
+        <name>linha</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Linha da coordenada. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="dados.h" line="46" column="9" bodyfile="dados.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Constituição da coordenada. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="dados.h" line="44" column="15" bodyfile="dados.h" bodystart="44" bodyend="47"/>
+    <listofallmembers>
+      <member refid="structCOORDENADA_1ac241af99d2fb991831964fb94b86c7de" prot="public" virt="non-virtual"><scope>COORDENADA</scope><name>coluna</name></member>
+      <member refid="structCOORDENADA_1a369e9a4d96b7450bbc640fe737db2977" prot="public" virt="non-virtual"><scope>COORDENADA</scope><name>linha</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

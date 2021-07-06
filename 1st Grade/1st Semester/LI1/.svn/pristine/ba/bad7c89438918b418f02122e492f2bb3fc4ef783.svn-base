@@ -1,0 +1,95 @@
+-- | Este módulo define funções comuns da Tarefa 4 do trabalho prático.
+module Tarefa4_2019li1g009 where
+
+import LI11920
+import Tarefa0_2019li1g009
+import Tarefa1_2019li1g009
+import Tarefa2_2019li1g009
+import Tarefa3_2019li1g009
+
+-- * Testes
+-- | Testes unitários da Tarefa 4.
+--
+-- Cada teste é um par (/tempo/,/'Mapa'/,/'Jogador'/).
+testesT4 :: [(Double,Mapa,Jogador)]
+testesT4 = []
+
+-- * Funções principais da Tarefa 4.
+
+-- | Avança o estado de um 'Jogador' um 'passo' em frente, durante um determinado período de tempo.
+passo :: Double -- ^ O tempo decorrido.
+     -> Mapa    -- ^ O mapa utilizado.
+     -> Jogador -- ^ O estado anterior do 'Jogador'.
+     -> Jogador -- ^ O estado do 'Jogador' após um 'passo'.
+passo t m j = move t m (acelera t m j)
+
+-- | Altera a velocidade de um 'Jogador', durante um determinado período de tempo.
+acelera :: Double -- ^ O tempo decorrido.
+        -> Mapa    -- ^ O mapa utilizado.
+        -> Jogador -- ^ O estado anterior do 'Jogador'.
+        -> Jogador -- ^ O estado do 'Jogador' após acelerar.
+acelera t m (Jogador pj dj vj cj (Chao b)) = (Jogador pj dj vn cj (Chao b))
+    where vn = (velMenChao vj t b (pecajog m ((Jogador pj dj vj cj (Chao b)))))
+acelera t m (Jogador pj dj vj cj (Ar aj gj ij)) = (Jogador pj dj (nv) cj (Ar aj (calcGrav gj t)))
+    where nv = velMenAr vj t
+acelera t m (Jogador pj dj vj cj ej) = (Jogador pj dj vj cj ej)
+
+-- | Altera a posição de 'Jogador', durante um determinado período de tempo.
+move :: Double -- ^ O tempo decorrido.
+     -> Mapa    -- ^ O mapa utilizado.
+     -> Jogador -- ^ O estado anterior do 'Jogador'.
+     -> Jogador -- ^ O estado do 'Jogador' após se movimentar.
+move = undefined
+
+
+-- | Função que determina a peça onde o jogador está.
+pecajog :: Mapa 
+        -> Jogador -- ^ Jogador
+        -> Peca -- ^ peça onde o Jogador se encontra
+pecajog ((x:t):ts) ((Jogador pj dj vj cj ej))
+    | pj==0 && dj>=0 && dj<=1 = x
+    | pj==0 && dj>1 = pecajog ((t):ts) (Jogador pj (dj-1) vj cj ej)
+    | pj>0 = pecajog (ts) (Jogador (pj-1) dj vj cj ej)
+
+-- Calcula a Velocidade no Chão
+calcVelChao :: Double -> Bool -> Double -> Peca -> Double
+calcVelChao vj (True) t p = vj + (accelMota - (selAtrito p) * vj) * t 
+ where accelMota = if (vj < 2) then 1 else 0   
+calcVelChao vj (False) t p = vj + (0 - (selAtrito p)* vj) * t
+ 
+
+velMenChao :: Double -> Double -> Bool -> Peca -> Double
+velMenChao vj t b p
+ | (calcVelChao vj b t p) >= 0 = (calcVelChao vj b t p)
+ | otherwise = 0
+
+velMenAr :: Double -> Double -> Double
+velMenAr vj t
+    | calcVelAr vj t >=0 = (calcVelAr vj t)
+    | otherwise = 0
+
+-- Calcula a Velocidade no Ar
+calcVelAr :: Double -> Double -> Double
+calcVelAr vj t = vj - ((0.125) * vj * t)
+
+calcGrav :: Double -> Double -> Double
+calcGrav gj t = gj + t
+
+
+
+
+-- v' = v + (accelMota - selAtrito * v) * t
+-- accelMota = if (v < 2 && accelJogador) then 1 else 0   
+
+selAtrito :: Peca -> Double
+selAtrito (Recta piso x) = case piso of Terra -> (0.25)
+                                        Relva -> (0.75)
+                                        Lama -> (1.50)
+                                        Boost -> (-0.50)
+                                        Cola -> (3.00)
+selAtrito (Rampa piso x y) = case piso of Terra -> (0.25)
+                                          Relva -> (0.75)
+                                          Lama -> (1.50)
+                                          Boost -> (-0.50)
+                                          Cola -> (3.00)
+                              

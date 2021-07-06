@@ -1,0 +1,69 @@
+-- | Este módulo define funções comuns da Tarefa 3 do trabalho prático.
+module Tarefa3_2019li1g009 where
+
+import LI11920
+import Tarefa0_2019li1g009
+import Tarefa1_2019li1g009
+import Tarefa2_2019li1g009
+
+-- * Testes
+
+-- | Testes unitários da Tarefa 3.
+--
+-- Cada teste é um 'Mapa'.
+testesT3 :: [Mapa]
+testesT3 = []
+
+------------------------------------- Padrão horizontal -----------------------------------
+-- Função que divide o mapa em pistas
+-- int é o numero da pista
+padrao :: Mapa 
+       -> Int
+       -> [Peca]
+padrao [] _ _ = []
+padrao ((x:xs):t) a | a==0 = (x:xs)
+                    | otherwise = padrao t (a-1)
+
+-- Função que transforma as peças em instruções
+--p é o n da pista
+pecInstr :: [Peca] -> Int -> [Instrucao]
+pecInstr ((Recta piso x):xs) p = (Anda [p] piso):(pecInstr xs p)
+pecInstr ((Rampa piso x y):xs) p | (x-y)>0 = (Desce [p] piso):(pecInstr xs p)
+                                 | otherwise = (Sobe [p] piso):(pecInstr xs p)
+
+-- Função que transforma uma lista de instruções em várias listas de instruções.
+-- Uma lista de instruções é constituída por instruções todas iguais
+padraoHor :: [Instrucao] -> [Instrucao]
+padraoHor (x:xs) = padraoHorAux2 (padraoHorAux x (xs))
+
+
+-- Função que calcula uma lista de instruções constituída por instruções todas iguais
+padraoHorAux :: Instrucao -> [Instrucao] -> [[Instrucao]]
+padraoHorAux i [] = []
+padraoHorAux i (x:xs)
+    | i==x = [x]:(padraoHorAux i xs)
+    | otherwise = [i]:(padraoHorAux x xs)
+
+
+padraoHorAux2 :: [[Instrucao]] -> [Instrucao]
+padraoHorAux2 [] = []
+padraoHorAux2 ((x:xs):t) = [(Repete (length (x:xs)) [x])]++(padraoHorAux2 t)
+
+
+--------------------------------- Padrão Vertical--------------------------------------------------
+-- Função que faz a transposta do mapa (que é uma matriz)
+transp:: [[a]]->[[a]]
+transp ([]:_) = []
+transp m = (map head m) : transp (map tail m)
+
+
+
+-- * Funções principais da Tarefa 3.
+
+-- | Desconstrói um 'Mapa' numa sequência de 'Instrucoes'.
+--
+-- __NB:__ Uma solução correcta deve retornar uma sequência de 'Instrucoes' tal que, para qualquer mapa válido 'm', executar as instruções '(desconstroi m)' produza o mesmo mapa 'm'.
+--
+-- __NB:__ Uma boa solução deve representar o 'Mapa' dado no mínimo número de 'Instrucoes', de acordo com a função 'tamanhoInstrucoes'.
+desconstroi :: Mapa -> Instrucoes
+desconstroi = undefined

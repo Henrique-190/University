@@ -1,0 +1,90 @@
+-- | Este módulo define funções comuns da Tarefa 5 do trabalho prático.
+module Main where
+
+import LI11920
+import Graphics.Gloss
+import Graphics.Gloss.Juicy
+import Graphics.Gloss.Interface.Pure.Game
+import Graphics.Gloss.Data.Bitmap
+
+
+type EstadoGloss = (Float,Float,[Picture])
+
+-- | Função principal da Tarefa 5.
+--
+-- __NB:__ Esta Tarefa é completamente livre. Deve utilizar a biblioteca <http://hackage.haskell.org/package/gloss gloss> para animar o jogo, e reutilizar __de forma completa__ as funções das tarefas anteriores.
+estadoInicial :: [Picture] -> EstadoGloss
+estadoInicial z = (0,0,z)
+
+
+desenhaEstado :: EstadoGloss -> Picture
+desenhaEstado (x,y,[principal,z]) = Pictures [principal,Translate x y z]
+
+
+reageEvento :: Event -> EstadoGloss -> EstadoGloss
+reageEvento (EventKey (SpecialKey KeyUp)    Down _ _) (x,y,p) = (x,y+10,p)
+reageEvento (EventKey (SpecialKey KeyDown)  Down _ _) (x,y,p) = (x,y-10,p)
+reageEvento (EventKey (SpecialKey KeyLeft)  Down _ _) (x,y,p) = (x-10,y,p)
+reageEvento (EventKey (SpecialKey KeyRight) Down _ _) (x,y,p) = (x+10,y,p)
+reageEvento _ e = e
+
+
+drawMapa :: Mapa -> Float -> Float -> [Picture] -> [Picture]
+drawMapa (h:t) x y peca = (drawLinha h x y peca) ++ (drawMapa t x (y-13) peca)
+
+
+drawLinha :: [Peca] -> Float -> Float -> [Picture] -> [Picture]
+drawLinha (h:t) x y peca = (drawPeca h x y peca) ++ (drawMapa t (y-13) peca)
+
+
+drawPeca :: Peca -> Float -> Float -> [Picture] -> [Picture]
+drawPeca p x y ()
+    | p == (Recta Terra a) = Picture [Translate x y ret]
+    | p == (Recta Relva a) = Picture [Translate x y rer]
+    | p == (Recta Lama a) = Picture [Translate x y rel]
+    | p == (Recta Cola a) = Picture [Translate x y rec]
+    | p == (Recta Boost a) = Picture [Translate x y reb]
+    | p == (Rampa Terra a b) = if x-y>1 then Picture [Translate x y raat] else Picture [Translate x y rat]
+    | p == (Rampa Relva a b) = if x-y>1 then Picture [Translate x y raar] else Picture [Translate x y rar]
+    | p == (Rampa Lama a b) = if x-y>1 then Picture [Translate x y raal] else Picture [Translate x y ral]
+    | p == (Rampa Cola a b) = if x-y>1 then Picture [Translate x y raac] else Picture [Translate x y rac]
+    | p == (Rampa Boost a b) = if x-y>1 then Picture [Translate x y raab] else Picture [Translate x y rab]
+
+
+reageTempo :: Float -> EstadoGloss -> EstadoGloss
+reageTempo n (x,y,z) = (x,y,z)
+
+
+fr :: Int
+fr = 60
+
+
+dm :: Display
+dm = FullScreen
+
+
+main :: IO ()
+main = do Just principal <- loadJuicy "imagens/PSP.jpeg"
+          Just z <- loadJuicy "imagens/Bola.jpg"
+          Just ret <- loadJuicy "imagens/Peça/"
+          Just rer <- loadJuicy "imagens/Peça/"
+          Just rel <- loadJuicy "imagens/Peça/"
+          Just rec <- loadJuicy "imagens/Peça/"
+          Just reb <- loadJuicy "imagens/Peça/"
+          Just rat <- loadJuicy "imagens/Peça/TERRA 0 1.png"
+          Just rar <- loadJuicy "imagens/Peça/RELVA 0 1.png"
+          Just ral <- loadJuicy "imagens/Peça/LAMA 0 1.png"
+          Just rac <- loadJuicy "imagens/Peça/COLA 0 1.png"
+          Just rab <- loadJuicy "imagens/Peça/BOOST 0 1.png"
+          Just raat <- loadJuicy "imagens/Peça/TERRA 0 2.png"
+          Just raar <- loadJuicy "imagens/Peça/RELVA 0 2.png"
+          Just raal <- loadJuicy "imagens/Peça/LAMA 0 2.png"
+          Just raac <- loadJuicy "imagens/Peça/COLA 0 2.png"
+          Just raab <- loadJuicy "imagens/Peça/BOOST 0 2.png"
+          play dm         -- janela onde irá correr o jogo
+               (greyN 0.5)    -- côr do fundo da janela
+               fr              -- frame rate
+               (estadoInicial [principal,(scale 0.15 0.15 z)])   -- estado inicial
+               desenhaEstado   -- desenha o estado do jogo
+               reageEvento     -- reage a um evento
+               reageTempo      -- reage ao passar do tempo

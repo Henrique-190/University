@@ -1,0 +1,79 @@
+-- | Este módulo define funções comuns da Tarefa 3 do trabalho prático.
+module Tarefa3_2019li1g009 where
+
+import LI11920
+import Tarefa0_2019li1g009
+import Tarefa1_2019li1g009
+import Tarefa2_2019li1g009
+
+-- * Testes
+
+-- | Testes unitários da Tarefa 3.
+--
+-- Cada teste é um 'Mapa'.
+testesT3 :: [Mapa]
+testesT3 = [a,b,c,d,e,f]
+ where a = (gera 3 4 2)
+       b = (gera 1 1 1)
+       c = (gera 10 10 10)
+       d = (gera 2 3 7)
+       e = (gera 7 8 9)
+       f = (gera 1 2 3)
+
+-- | Função que divide o mapa em pistas
+padrao :: Mapa 
+       -> Int -- ^ Número da Pista
+       -> [([Peca],Int)] -- ^ Pista com o número da pista
+padrao [] a = []
+padrao ((x:xs):t) a = (((x:xs),a)):(padrao t (a+1))
+                      
+
+-- | Função que transforma as peças em instruções
+pecInstr :: [([Peca],Int)] -- ^ Pista com o número da pista
+            -> [Instrucao]
+pecInstr [] = []
+pecInstr (((x:xs),p):a) = (pecInstrAux ((x:xs),p))++(pecInstr a)
+
+pecInstrAux :: ([Peca],Int) -- ^ Pista com o número da pista
+            -> [Instrucao]
+pecInstrAux ([],_) = []
+pecInstrAux (((Recta piso a):xs),p) = (Anda [p] piso):(pecInstrAux ((xs),p))
+pecInstrAux (((Rampa piso a b):xs),p) | a>b = (Desce [p] piso (a-b)):(pecInstrAux ((xs),p))
+                                      | otherwise = (Sobe [p] piso (b-a)):(pecInstrAux ((xs),p))
+
+repetido :: [Instrucao] -> [Instrucao]
+repetido [_] = []
+repetido (x:xs) = (repetidoAux2 (repetidoAux x xs))++(repetido (drop (length ((repetidoAux2 (repetidoAux x xs)))) (x:xs)))
+
+repetidoAux :: Instrucao -> [Instrucao] -> [Instrucao]
+repetidoAux _ [] = [] 
+repetidoAux (Anda [x] a) ((Anda [y] b):xs) 
+    | a==b && x==y = [(Anda [y] b)]++(repetidoAux (Anda [x] a) (xs))
+    | otherwise = [(Anda [x] a)]
+repetidoAux (Sobe [x] a b) ((Sobe [y] c d):xs) 
+    | a==c && b==d && x==y = [(Sobe [x] c d)]++(repetidoAux (Sobe [x] a b) (xs))
+    | otherwise = [(Sobe [x] a b)]
+repetidoAux (Desce [x] a b) ((Desce [y] c d):xs) 
+    | a==c && b==d && x==y = [(Desce [x] c d)]++(repetidoAux (Desce [x] a b) (xs))
+    | otherwise = [(Desce [x] a b)]
+repetidoAux (Sobe [x] a b) _ = [(Sobe [x] a b)]
+repetidoAux (Desce [x] a b) _ = [(Desce [x] a b)]
+repetidoAux (Anda [x] a) _ = [(Anda [x] a)]
+
+
+repetidoAux2 :: [Instrucao] -> [Instrucao]
+repetidoAux2 [] = []
+repetidoAux2 (x:xs) 
+    | length (x:xs)>1 = [Repete (length (x:xs)) [x]]
+    | otherwise = [x]
+
+
+-- * Funções principais da Tarefa 3.
+
+-- | Desconstrói um 'Mapa' numa sequência de 'Instrucoes'.
+--
+-- __NB:__ Uma solução correcta deve retornar uma sequência de 'Instrucoes' tal que, para qualquer mapa válido 'm', executar as instruções '(desconstroi m)' produza o mesmo mapa 'm'.
+--
+-- __NB:__ Uma boa solução deve representar o 'Mapa' dado no mínimo número de 'Instrucoes', de acordo com a função 'tamanhoInstrucoes'.
+desconstroi :: Mapa -> Instrucoes
+desconstroi m = repetido (pecInstr (padrao (map (drop 1) m) 0))

@@ -1,0 +1,144 @@
+-- | Este módulo define funções comuns da Tarefa 4 do trabalho prático.
+module Tarefa4_2019li1g009 where
+
+import LI11920
+import Tarefa0_2019li1g009
+import Tarefa1_2019li1g009
+import Tarefa2_2019li1g009
+import Tarefa3_2019li1g009
+
+-- * Testes
+-- | Testes unitários da Tarefa 4.
+--
+-- Cada teste é um par (/tempo/,/'Mapa'/,/'Jogador'/).
+testesT4 :: [(Double,Mapa,Jogador)]
+testesT4 = []
+
+-- * Funções principais da Tarefa 4.
+
+-- | Avança o estado de um 'Jogador' um 'passo' em frente, durante um determinado período de tempo.
+passo :: Double -- ^ O tempo decorrido.
+     -> Mapa    -- ^ O mapa utilizado.
+     -> Jogador -- ^ O estado anterior do 'Jogador'.
+     -> Jogador -- ^ O estado do 'Jogador' após um 'passo'.
+passo t m j = move t m (acelera t m j)
+
+
+-- | Altera a velocidade de um 'Jogador', durante um determinado período de tempo.
+acelera :: Double -- ^ O tempo decorrido.
+        -> Mapa    -- ^ O mapa utilizado.
+        -> Jogador -- ^ O estado anterior do 'Jogador'.
+        -> Jogador -- ^ O estado do 'Jogador' após acelerar.
+acelera t m (Jogador pj dj vj cj (Chao b)) = (Jogador pj dj vn cj (Chao b))
+    where vn = (velMenChao vj t b (pecajog m ((Jogador pj dj vj cj (Chao b)))))
+acelera t m (Jogador pj dj vj cj (Ar aj gj ij)) = (Jogador pj dj (nv) cj (Ar aj (calcGrav gj t) ij))
+    where nv = velMenAr vj t
+acelera t m (Jogador pj dj vj cj ej) = (Jogador pj dj vj cj ej)
+
+
+-- | Altera a posição de 'Jogador', durante um determinado período de tempo.
+move :: Double -- ^ O tempo decorrido.
+     -> Mapa    -- ^ O mapa utilizado.
+     -> Jogador -- ^ O estado anterior do 'Jogador'.
+     -> Jogador -- ^ O estado do 'Jogador' após se movimentar.
+move t m (Jogador pj dj vj cj (Morto tj))
+    | (t-tj)>0 = (Jogador pj dj vj cj (Morto (t-tj)))
+    | otherwise = (Jogador pj dj 0 cj (Chao False))
+move t m (Jogador pj dj vj cj (Chao bj))
+    | (vA>=pA) && (incA<=incB) = (Jogador pj (fromInteger (floor dj)+1) vj cj (Chao bj))
+    | (vA>=pA) && (incA>incB) = (Jogador pj (fromInteger (floor dj)+1) vj cj (Ar a incA 0))
+    | otherwise = (Jogador pj vA vj cj (Chao bj))
+ where vA = (dj+t*vj)
+       pA = ((fromIntegral (floor (dj)))+1)
+       incA = inc (pecajog m (Jogador pj (dj) vj cj (Chao bj)))
+       incB = (inc (pecajog m (Jogador pj (dj+1) vj cj (Chao bj))))
+       a = (qalturaj (pecajog m (Jogador pj (dj) vj cj (Chao bj))) (1.0))
+move t m (Jogador pj dj vj cj (Ar aj ij gj))
+    | intersetam (cartA,cartB) (somaVetores vel gra) = undefined
+    | otherwise = undefined
+ 
+ where cartA = Cartesiano 0 (qalturai (ondeestas 1 m [(Jogador pj dj vj cj (Ar aj ij gj))]))
+       cartB = Cartesiano 1 (qalturaf (ondeestas 1 m [(Jogador pj dj vj cj (Ar aj ij gj))]))
+       vpeca = (Polar 1 incA)
+       incA = inc (pecajog m (Jogador pj (dj) vj cj (Chao True)))
+       vel = Polar vj ij
+       gra = Polar gj (-90)
+
+-------------- velocidade nova quando bate :::::::::: v*cos(inclinação jogador)
+-- | Função que determina a altura inicial da peça do Jogador.
+qalturai :: Peca -> Double
+qalturai (Recta piso x) = (fromIntegral x)
+qalturai (Rampa piso x _) = (fromIntegral x)
+
+-- | Função que determina a altura final da peça do Jogador.
+qalturaf :: Peca -> Double
+qalturaf (Recta piso x) = (fromIntegral x)
+qalturaf (Rampa piso _ y) = (fromIntegral y)
+
+-- | Função que determina a peça onde o jogador está.
+pecajog :: Mapa 
+        -> Jogador -- ^ Jogador
+        -> Peca -- ^ peça onde o Jogador se encontra
+pecajog ((x:t):ts) ((Jogador pj dj vj cj ej))
+    | pj==0 && dj>=0 && dj<=1 = x
+    | pj==0 && dj>1 = pecajog ((t):ts) (Jogador pj (dj-1) vj cj ej)
+    | pj>0 = pecajog (ts) (Jogador (pj-1) dj vj cj ej)
+
+
+-- | Calcula a Velocidade no Chão.
+calcVelChao :: Double -- ^ Velocidade anterior do Jogador 
+            -> Bool -- ^ Aceleração do Jogador
+            -> Double -- ^ Tempo
+            -> Peca -- ^ Onde o Jogador está
+            -> Double -- ^ Velocidade atual do Jogador
+calcVelChao vj (True) t p = vj + (accelMota - (selAtrito p) * vj) * t 
+ where accelMota = if (vj < 2) then 1 else 0   
+calcVelChao vj (False) t p = vj + (0 - (selAtrito p)* vj) * t
+ 
+
+-- | Verifica se a velocidade é menor, igual ou maior que zero.
+velMenChao :: Double -- ^ Velocidade anterior do Jogador 
+           -> Double -- ^ Tempo
+           -> Bool -- ^ Aceleração do Jogador
+           -> Peca -- ^ Onde o Jogador está
+           -> Double -- ^ Velocidade atual do Jogador
+velMenChao vj t b p
+ | (calcVelChao vj b t p) >= 0 = (calcVelChao vj b t p)
+ | otherwise = 0
+
+
+-- | Verifica se a velocidade é menor, igual ou maior que zero.
+velMenAr :: Double -- ^ Velocidade anterior do Jogador 
+         -> Double -- ^ Tempo
+         -> Double -- ^ Velocidade atual do Jogador
+velMenAr vj t
+    | calcVelAr vj t >=0 = (calcVelAr vj t)
+    | otherwise = 0
+
+
+-- | Calcula a Velocidade no Ar.
+calcVelAr :: Double -- ^ Velocidade anterior do Jogador 
+          -> Double -- ^ Tempo
+          -> Double -- ^ Velocidade atual do Jogador
+calcVelAr vj t = vj - ((0.125) * vj * t)
+
+-- | Calcula a Gravidade do Jogador, quando ele está no Ar.
+calcGrav :: Double -- ^ Gravidade anterior do Jogador 
+         -> Double -- ^ Tempo
+         -> Double -- ^ Gravidade atual do Jogador 
+calcGrav gj t = gj + t
+
+
+-- | Função que coloca coloca valores de atrito, de acordo com o piso.
+selAtrito :: Peca 
+          -> Double
+selAtrito (Recta piso x) = atrito piso
+selAtrito (Rampa piso x y) = atrito piso
+
+atrito :: Piso -> Double
+atrito piso = case piso of Terra -> (0.25)
+                           Relva -> (0.75)
+                           Lama -> (1.50)
+                           Boost -> (-0.50)
+                           Cola -> (3.00)
+                          

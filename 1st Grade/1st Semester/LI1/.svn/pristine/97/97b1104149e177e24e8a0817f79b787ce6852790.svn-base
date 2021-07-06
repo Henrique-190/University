@@ -1,0 +1,93 @@
+-- | Este módulo define funções comuns da Tarefa 2 do trabalho prático.
+module Tarefa1_2019li1g009 where
+
+import LI11920
+import System.Random
+
+-- * Testes
+
+-- | Testes unitários da Tarefa 1.
+--
+-- Cada teste é um triplo (/número de 'Pista's/,/comprimento de cada 'Pista' do 'Mapa'/,/semente de aleatoriedades/).
+testesT1 :: [(Int,Int,Int)]
+testesT1 = [(1,1,2),(4,2,9),(3,7,1),(10,10,3),(2,6,2),(9,6,5),(17,6,2),(2,2,2)]
+
+
+-- * Funções pré-definidas da Tarefa 1.
+geraAleatorios :: Int -> Int -> [Int]
+geraAleatorios n seed = take n (randomRs (0,9) (mkStdGen seed))
+
+
+-- * Função que divide a lista em pares
+dividePar :: [Int] -> [(Int,Int)]
+dividePar [] = []
+dividePar (x:y:xs) = (x,y):(dividePar xs)
+
+
+-- * Função que divide a lista de pares em lista de lista de pares, de modo a formar pistas
+-- Remove 1 unidade ao comprimento, dado que a primeira peça já está definida
+divideP :: [(Int,Int)] -> Int -> [[(Int,Int)]]
+divideP [] comp = []
+divideP l 1 = (dividePAux l 1):(divideP resto 1)
+ where resto = (drop 1 l)
+divideP l comp = (dividePAux l (comp-1)):(divideP restante comp)
+ where restante = (drop (length (dividePAux l (comp-1))) l)
+
+-- * Função que forma uma pista
+dividePAux :: [(Int,Int)] -> Int -> [(Int,Int)]
+dividePAux l 0 = []
+dividePAux [] comp = []
+dividePAux ((x,y):ys) 1 = [(x,y)]
+dividePAux ((x,y):ys) comp = (x,y):(dividePAux ys (comp-1))
+
+
+-- * Função que adiciona (0,6), ou seja, Recta Terra 0, que é a primeira peça de uma pista, às várias pistas.
+addZero :: [[(Int,Int)]] -> Int -> [[(Int,Int)]]
+addZero [] 1 = [[(0,6)]]
+addZero [] comp = []
+addZero (((a,b):xs):l) comp = [[(0,6)]++((a,b):xs)]++(addZero l comp)
+
+
+-- * Função que adiciona o acumulador "Terra", de modo a definir todos os pisos. O primeiro piso será sempre Terra
+piso :: [(Int,Int)] -> [Piso]
+piso [] = []
+piso ((x,y):t) = pisoAux ((x,y):t) Terra
+
+-- * Função que define o tipo de piso
+pisoAux :: [(Int,Int)] -> Piso -> [Piso]
+pisoAux [] a = []
+pisoAux ((x,y):t) a
+    | x==0 || x==1 = Terra:(pisoAux t Terra)
+    | x==2 || x==3 = Relva:(pisoAux t Relva)
+    | x==4 = Lama:(pisoAux t Lama)
+    | x==5 = Boost:(pisoAux t Boost)
+    | otherwise = a:(pisoAux t a)
+
+
+-- * Função que adiciona o acumulador "0", de modo a definir todas as alturas.
+altura :: [(Int,Int)] -> [Peca]
+altura [] = []
+altura ((x,y):t) = alturaAux ((x,y):t) 0
+
+
+-- * Função que define a altura de todos os números.
+alturaAux :: [(Int,Int)] -> Int -> [Peca]
+alturaAux [] a = []
+alturaAux ((x,y):t) a
+    | y==0 || y==1 = (Rampa (head (piso ((x,y):t))) a (a+y+1)):(alturaAux t (a+y+1))
+    | a==0 && y>=2 && y<=5 = (Recta (head (piso ((x,y):t))) a):(alturaAux t a)
+    | y>=2 && y<=5 && (a-y-1)<0 = (Rampa (head (piso ((x,y):t))) a 0):(alturaAux t 0)
+    | y>=2 && y<=5 = (Rampa (head (piso ((x,y):t))) a (a-y+1)):(alturaAux t (a-y+1))
+    | otherwise = (Recta (head (piso ((x,y):t))) a):(alturaAux t a)
+
+-- * Função que faz com que se definam as peças da lista de lista de pares
+mistura :: [[(Int,Int)]] -> [[Peca]]
+mistura [] = []
+mistura (((x,y):xs):t) = (altura ((x,y):xs)):(mistura t)
+
+-- * Funções principais da Tarefa 1.
+gera :: Int -> Int -> Int -> Mapa
+gera npistas comp semente = mistura (addZero pistaPar comp)
+
+ where gA = (geraAleatorios (2*npistas*(comp-1)) semente)
+       pistaPar = (divideP (dividePar (gA)) comp)
