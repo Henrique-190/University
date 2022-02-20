@@ -1,0 +1,1416 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.6.15)  7 FEB 2022 22:42
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**cp2122t.tex
+(./cp2122t.tex
+LaTeX2e <2020-02-02> patch level 2
+L3 programming layer <2020-02-14>
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2019/11/07 v1.0c TeX engine tests
+))
+\Gm@cnth=\count175
+\Gm@cntv=\count176
+\c@Gm@tempcnt=\count177
+\Gm@bindingoffset=\dimen135
+\Gm@wd@mp=\dimen136
+\Gm@odd@mp=\dimen137
+\Gm@even@mp=\dimen138
+\Gm@layoutwidth=\dimen139
+\Gm@layoutheight=\dimen140
+\Gm@layouthoffset=\dimen141
+\Gm@layoutvoffset=\dimen142
+\Gm@dimlist=\toks15
+)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/palatino.sty
+Package: palatino 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+)
+\@linkdim=\dimen143
+\Hy@linkcounter=\count178
+\Hy@pagecounter=\count179
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count180
+\pdfmajorversion=\count181
+Package hyperref Info: Option `colorlinks' set `true' on input line 4421.
+Package hyperref Info: Hyper figures OFF on input line 4547.
+Package hyperref Info: Link nesting OFF on input line 4552.
+Package hyperref Info: Hyper index ON on input line 4555.
+Package hyperref Info: Plain pages OFF on input line 4562.
+Package hyperref Info: Backreferencing OFF on input line 4567.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4800.
+\c@Hy@tempcnt=\count182
+
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5159.
+\XeTeXLinkMargin=\dimen144
+
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count183
+\Field@Width=\dimen145
+\Fld@charsize=\dimen146
+Package hyperref Info: Hyper figures OFF on input line 6430.
+Package hyperref Info: Link nesting OFF on input line 6435.
+Package hyperref Info: Hyper index ON on input line 6438.
+Package hyperref Info: backreferencing OFF on input line 6445.
+Package hyperref Info: Link coloring ON on input line 6448.
+Package hyperref Info: Link coloring with OCG OFF on input line 6455.
+Package hyperref Info: PDF/A mode OFF on input line 6460.
+LaTeX Info: Redefining \ref on input line 6500.
+LaTeX Info: Redefining \pageref on input line 6504.
+
+(/usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty
+Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
+)
+\Hy@abspage=\count184
+\c@Item=\count185
+\c@Hfootnote=\count186
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2020/01/14 v7.00d Hyperref driver for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/atveryend/atveryend.sty
+Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+)
+\Fld@listcount=\count187
+\c@bookmark@seq@number=\count188
+
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip49
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen147
+\Gin@req@width=\dimen148
+)
+(./cp2122t.sty (/usr/share/texlive/texmf-dist/tex/latex/base/fleqn.sty
+
+LaTeX Warning: inputting `fleqn.clo' instead of obsolete `fleqn.sty'.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/fleqn.clo
+File: fleqn.clo 2016/12/29 v1.2b Standard LaTeX option (flush left equations)
+\mathindent=\dimen149
+Applying: [2015/01/01] Make \[ robust on input line 50.
+LaTeX Info: Redefining \[ on input line 51.
+Already applied: [0000/00/00] Make \[ robust on input line 62.
+Applying: [2015/01/01] Make \] robust on input line 74.
+LaTeX Info: Redefining \] on input line 75.
+Already applied: [0000/00/00] Make \] robust on input line 83.
+))
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2020/02/14 3.40 The Babel package
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2020/02/14 3.40 Babel switching mechanism
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-portuges/portuges.ldf
+Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2020/02/14 3.40 Babel common definitions
+\babel@savecnt=\count189
+\U@D=\dimen150
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count190
+)
+Package babel Info: Making " an active character on input line 145.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks16
+\inpenc@posthook=\toks17
+)
+\c@teste=\count191
+\c@propriedade=\count192
+
+(/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2020/01/13 v3.5 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count193
+\FV@InFile=\read3
+\FV@TabBox=\box45
+\c@FancyVerbLine=\count194
+\FV@StepNumber=\count195
+\FV@OutFile=\write3
+)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xy.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xy.tex Bootstrap'ing:
+catcodes, docmode, (/usr/share/texlive/texmf-dist/tex/generic/xypic/xyrecat.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/xypic/xyidioms.tex)
+
+ Xy-pic version 3.8.9 <2013/10/06>
+ Copyright (c) 1991-2013 by Kristoffer H. Rose <krisrose@tug.org> and others
+ Xy-pic is free software: see the User's Guide for details.
+
+Loading kernel: messages; fonts; allocations: state,
+\X@c=\dimen151
+\Y@c=\dimen152
+\U@c=\dimen153
+\D@c=\dimen154
+\L@c=\dimen155
+\R@c=\dimen156
+\Edge@c=\toks18
+\X@p=\dimen157
+\Y@p=\dimen158
+\U@p=\dimen159
+\D@p=\dimen160
+\L@p=\dimen161
+\R@p=\dimen162
+\Edge@p=\toks19
+\X@origin=\dimen163
+\Y@origin=\dimen164
+\X@xbase=\dimen165
+\Y@xbase=\dimen166
+\X@ybase=\dimen167
+\Y@ybase=\dimen168
+\X@min=\dimen169
+\Y@min=\dimen170
+\X@max=\dimen171
+\Y@max=\dimen172
+\lastobjectbox@=\box46
+\zerodotbox@=\box47
+\almostz@=\dimen173
+ direction,
+\d@X=\dimen174
+\d@Y=\dimen175
+\K@=\count196
+\KK@=\count197
+\Direction=\count198
+\K@dXdY=\dimen176
+\K@dYdX=\dimen177
+\xyread@=\read4
+\xywrite@=\write4
+\csp@=\count199
+\quotPTK@=\dimen178
+
+utility macros; pictures: \xy, positions,
+\swaptoks@@=\toks20
+\connectobjectbox@@=\box48
+ objects,
+\styletoks@=\toks21
+ decorations;
+kernel objects: directionals, circles, text; options; algorithms: directions,
+edges, connections;  Xy-pic loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifpdf.sty
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+)
+Package: xy 2013/10/06 Xy-pic version 3.8.9
+
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xyall.tex
+ Xy-pic option: All features v.3.8
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xycurve.tex
+ Xy-pic option: Curve and Spline extension v.3.12 curve,
+\crv@cnt@=\count266
+\crvpts@=\toks22
+\splinebox@=\box49
+\splineval@=\dimen179
+\splinedepth@=\dimen180
+\splinetol@=\dimen181
+\splinelength@=\dimen182
+ circles,
+\L@=\dimen183
+ loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xyframe.tex
+ Xy-pic option: Frame and Bracket extension v.3.14 loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xycmtip.tex
+ Xy-pic option: Computer Modern tip extension v.3.7
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xytips.tex
+ Xy-pic option: More Tips extension v.3.11 loaded) loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xyline.tex
+ Xy-pic option: Line styles extension v.3.10
+\xylinethick@=\dimen184
+ loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xyrotate.tex
+ Xy-pic option: Rotate and Scale extension v.3.8 loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xycolor.tex
+ Xy-pic option: Colour extension v.3.11 loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xymatrix.tex
+ Xy-pic option: Matrix feature v.3.14
+\Row=\count267
+\Col=\count268
+\queue@=\toks23
+\queue@@=\toks24
+\qcount@=\count269
+\qcount@@=\count270
+\matrixsize@=\count271
+ loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xyarrow.tex
+ Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xygraph.tex
+ Xy-pic option: Graph feature v.3.11 loaded) loaded)
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xypdf.tex
+ Xy-pic option: PDF driver v.1.7 Xy-pic pdf driver: `color' extension support
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xypdf-co.tex loaded)
+Xy-pic pdf driver: `curve' extension support
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xypdf-cu.tex loaded)
+Xy-pic pdf driver: `frame' extension support
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xypdf-fr.tex loaded)
+Xy-pic pdf driver: `line' extension support
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xypdf-li.tex loaded)
+Xy-pic pdf driver: `rotate' extension support
+(/usr/share/texlive/texmf-dist/tex/generic/xypic/xypdf-ro.tex loaded) loaded))
+(/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty
+Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
+)
+\pn=\count272
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2020/01/22 v1.3d Sub-captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/01/03 v3.4h Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 61.
+\captionmargin=\dimen185
+\captionmargin@=\dimen186
+\captionwidth=\dimen187
+\caption@tempdima=\dimen188
+\caption@indent=\dimen189
+\caption@parindent=\dimen190
+\caption@hangindent=\dimen191
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count273
+\c@continuedfloat=\count274
+Package caption Info: hyperref package is loaded.
+)
+\c@subfigure=\count275
+\c@subtable=\count276
+) (./trees.sty
+\treebox=\box50
+\treewidth=\dimen192
+\treeheight=\dimen193
+)
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2019/01/04 v1.2 Adjusting TeX boxes (trim, clip, ...)
+
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks25
+\XKV@tempa@toks=\toks26
+)
+\XKV@depth=\count277
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2018/04/08 v1.1 Trim and clip general TeX material
+
+(/usr/share/texlive/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box51
+)
+\tc@llx=\dimen194
+\tc@lly=\dimen195
+\tc@urx=\dimen196
+\tc@ury=\dimen197
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen198
+\adjbox@Height=\dimen199
+\adjbox@Depth=\dimen256
+\adjbox@Totalheight=\dimen257
+\adjbox@pwidth=\dimen258
+\adjbox@pheight=\dimen259
+\adjbox@pdepth=\dimen260
+\adjbox@ptotalheight=\dimen261
+
+(/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count278
+)
+(/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box52
+\sift@deathcycles=\count279
+\@vwid@loff=\dimen262
+\@vwid@roff=\dimen263
+))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2019/11/23 v1.2a Standard LaTeX Color (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+)
+Package color Info: Redefining color red on input line 11.
+Package color Info: Redefining color blue on input line 12.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks27
+\ex@=\dimen264
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty
+Package: stmaryrd 1994/03/03 St Mary's Road symbol package
+\symstmry=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
+(Font)                  U/stmry/m/n --> U/stmry/b/n on input line 89.
+)
+(/usr/share/texmf/tex/latex/polytable/polytable.sty
+Package: polytable 2013/07/18 v0.8.5 `polytable' package (Andres Loeh)
+
+(/usr/share/texmf/tex/latex/polytable/lazylist.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
+\col@sep=\dimen265
+\ar@mcellbox=\box53
+\extrarowheight=\dimen266
+\NC@list=\toks28
+\extratabsurround=\skip50
+\backup@length=\skip51
+\ar@cellbox=\box54
+)
+\PT@colwidth=\dimen267
+\PT@cols=\count280
+\PT@table=\count281
+\PT@toks=\toks29
+\PT@in=\read5
+\PT@out=\write5
+)
+\blanklineskip=\skip52
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count282
+\calc@Bcount=\count283
+\calc@Adimen=\dimen268
+\calc@Bdimen=\dimen269
+\calc@Askip=\skip53
+\calc@Bskip=\skip54
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count284
+\calc@Cskip=\skip55
+)
+
+LaTeX Warning: Label `eq:fokkinga' multiply defined.
+
+\@indexfile=\write6
+\openout6 = `cp2122t.idx'.
+
+Writing index file cp2122t.idx
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count285
+\l__pdf_internal_box=\box55
+)
+(./cp2122t.aux)
+\openout1 = `cp2122t.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 305.
+LaTeX Font Info:    ... okay on input line 305.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 305.
+LaTeX Font Info:    ... okay on input line 305.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 305.
+LaTeX Font Info:    ... okay on input line 305.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 305.
+LaTeX Font Info:    ... okay on input line 305.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 305.
+LaTeX Font Info:    ... okay on input line 305.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 305.
+LaTeX Font Info:    ... okay on input line 305.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 305.
+LaTeX Font Info:    ... okay on input line 305.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 305.
+LaTeX Font Info:    ... okay on input line 305.
+LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 3
+05.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd
+File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(85.35826pt, 455.24411pt, 56.9055pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=702.78308pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
+* \topmargin=-38.1381pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=57.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\AtBeginShipoutBox=\box56
+Package hyperref Info: Link coloring ON on input line 305.
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count286
+)
+LaTeX Info: Redefining \ref on input line 305.
+LaTeX Info: Redefining \pageref on input line 305.
+LaTeX Info: Redefining \nameref on input line 305.
+
+(./cp2122t.out) (./cp2122t.out)
+\@outlinefile=\write7
+\openout7 = `cp2122t.out'.
+
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count287
+\scratchdimen=\dimen270
+\scratchbox=\box57
+\nofMPsegments=\count288
+\nofMParguments=\count289
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count290
+\MPscratchDim=\dimen271
+\MPnumerator=\count291
+\makeMPintoPDFobject=\count292
+\everyMPtoPDFconversion=\toks31
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    Trying to load font information for U+msa on input line 305
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 305
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 3
+05.
+
+(/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
+Package xypdf Info: Line width: 0.39998pt on input line 305.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 3
+88.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ppl.fd
+File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
+)
+Overfull \hbox (11.79999pt too wide) in paragraph at lines 388--388
+[][] 
+ []
+
+
+Overfull \hbox (0.23462pt too wide) in paragraph at lines 391--396
+[]\OT1/ppl/m/n/10 Assumindo uma lista n[]ao va-zia de transa[][]oes, o al-go-ri
+tmo cl[]assico de constru[][]ao de uma $[] []$
+ []
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+ [2]
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 5
+39.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+) [3]
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+ [4] [5
+Non-PDF special ignored!
+<special> em:linewidth 0.2pt
+]
+\openout5 = `cp2122t.ptb'.
+
+
+Overfull \hbox (36.99507pt too wide) in paragraph at lines 807--810
+\OT1/ppl/m/n/10 Para fa-ci-li-tar o teste das implementa[][]oes pe-di-das abaix
+o, dis-po-ni-bi-li-za-mos no anexo [][]B[][] a fun[][]ao $[]$.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 860--867
+
+ []
+
+[6]
+\openout5 = `cp2122t.ptb'.
+
+ [7] [8] <xymatrix 2x2 191>
+\openout5 = `cp2122t.ptb'.
+
+ [9]
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+ [10]
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+LaTeX Font Info:    Trying to load font information for TS1+pcr on input line 1
+329.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pcr.fd
+File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
+)
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+
+Overfull \hbox (2336.20045pt too wide) in paragraph at lines 1251--1329
+ [][][][] 
+ []
+
+\openout5 = `cp2122t.ptb'.
+
+[11]
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][][][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][] 
+ []
+
+
+Overfull \hbox (12.57095pt too wide) in paragraph at lines 1422--1517
+ [][] 
+ []
+
+[12]
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+ [13] [14] <xymatrix 3x2 247> [15] <xymatrix 3x2 349>
+<cp2122t_media/cp_p1_arDesbalanciada.png, id=284, 902.37125pt x 82.3075pt>
+File: cp2122t_media/cp_p1_arDesbalanciada.png Graphic file (type png)
+<use cp2122t_media/cp_p1_arDesbalanciada.png>
+Package pdftex.def Info: cp2122t_media/cp_p1_arDesbalanciada.png  used on input
+ line 1836.
+(pdftex.def)             Requested size: 455.24411pt x 41.52412pt.
+ [16 <./cp2122t_media/cp_p1_arDesbalanciada.png>]
+<cp2122t_media/cp_p1_arBalanciada.png, id=297, 922.44624pt x 81.30376pt>
+File: cp2122t_media/cp_p1_arBalanciada.png Graphic file (type png)
+<use cp2122t_media/cp_p1_arBalanciada.png>
+Package pdftex.def Info: cp2122t_media/cp_p1_arBalanciada.png  used on input li
+ne 1851.
+(pdftex.def)             Requested size: 455.24411pt x 40.12451pt.
+ <xymatrix 3x2 257> <xymatrix 5x1 154> <xymatrix
+1x3 96> [17 <./cp2122t_media/cp_p1_arBalanciada.png>]
+<cp2122t_media/cp_p1_mtree.png, id=328, 1059.96pt x 92.345pt>
+File: cp2122t_media/cp_p1_mtree.png Graphic file (type png)
+<use cp2122t_media/cp_p1_mtree.png>
+Package pdftex.def Info: cp2122t_media/cp_p1_mtree.png  used on input line 1970
+.
+(pdftex.def)             Requested size: 455.24411pt x 39.66106pt.
+ <xymatrix 3x2 257>
+<cp2122t_media/cp_p1_mroot.png, id=335, 1055.945pt x 172.645pt>
+File: cp2122t_media/cp_p1_mroot.png Graphic file (type png)
+<use cp2122t_media/cp_p1_mroot.png>
+Package pdftex.def Info: cp2122t_media/cp_p1_mroot.png  used on input line 2034
+.
+(pdftex.def)             Requested size: 455.24411pt x 74.43083pt.
+
+[18 <./cp2122t_media/cp_p1_mtree.png>] <xymatrix 5x2 409>
+<cp2122t_media/cp_p1_pairsList.png, id=344, 1299.85625pt x 74.2775pt>
+File: cp2122t_media/cp_p1_pairsList.png Graphic file (type png)
+<use cp2122t_media/cp_p1_pairsList.png>
+Package pdftex.def Info: cp2122t_media/cp_p1_pairsList.png  used on input line 
+2104.
+(pdftex.def)             Requested size: 455.24411pt x 26.01337pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[19 <./cp2122t_media/cp_p1_mroot.png>]
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2159--2161
+
+ []
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+[20 <./cp2122t_media/cp_p1_pairsList.png>] <xymatrix 2x2 249>
+Overfull \hbox (45.00003pt too wide) in alignment at lines 2259--2275
+ [][][] []
+ []
+
+<xymatrix 2x2 249>
+Overfull \hbox (45.00003pt too wide) in alignment at lines 2290--2306
+ [][][] []
+ []
+
+[21]
+<cp2122t_media/cp_p2.png, id=385, 220.825pt x 67.25125pt>
+File: cp2122t_media/cp_p2.png Graphic file (type png)
+<use cp2122t_media/cp_p2.png>
+Package pdftex.def Info: cp2122t_media/cp_p2.png  used on input line 2341.
+(pdftex.def)             Requested size: 136.57462pt x 41.59476pt.
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+ <xymatrix 3x1 116>
+Overfull \hbox (45.00003pt too wide) in alignment at lines 2391--2400
+ [][][] []
+ []
+
+[22 <./cp2122t_media/cp_p2.png>] <xymatrix
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 2466.
+
+
+LaTeX Info: Symbol \textasciiacute not provided by
+            font family ppl in TS1 encoding.
+            Default family used instead on input line 2466.
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 2466.
+
+
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 2466.
+
+
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 2466.
+
+
+LaTeX Info: Symbol \textasciiacute not provided by
+            font family ppl in TS1 encoding.
+            Default family used instead on input line 2466.
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 2466.
+
+
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 2466.
+
+
+Missing character: There is no ´ in font cmr10!
+Missing character: There is no ´ in font cmr10!
+3x2
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 2466.
+
+
+LaTeX Info: Symbol \textasciiacute not provided by
+            font family ppl in TS1 encoding.
+            Default family used instead on input line 2466.
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 2466.
+
+
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 2466.
+
+
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 2466.
+
+
+LaTeX Info: Symbol \textasciiacute not provided by
+            font family ppl in TS1 encoding.
+            Default family used instead on input line 2466.
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 2466.
+
+
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 2466.
+
+
+Missing character: There is no ´ in font cmr10!
+Missing character: There is no ´ in font cmr10!
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 2466.
+
+
+LaTeX Info: Symbol \textasciiacute not provided by
+            font family ppl in TS1 encoding.
+            Default family used instead on input line 2466.
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 2466.
+
+
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 2466.
+
+
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 2466.
+
+
+LaTeX Info: Symbol \textasciiacute not provided by
+            font family ppl in TS1 encoding.
+            Default family used instead on input line 2466.
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 2466.
+
+
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 2466.
+
+
+Missing character: There is no ´ in font cmr10!
+Missing character: There is no ´ in font cmr10!
+257>
+Overfull \hbox (45.00003pt too wide) in alignment at lines 2450--2467
+ [][][] []
+ []
+
+[23] <xymatrix 3x2 257>
+Overfull \hbox (45.00003pt too wide) in alignment at lines 2552--2569
+ [][][] []
+ []
+
+[24]
+<cp2122t_media/cp_p3.png, id=410, 375.4025pt x 104.39pt>
+File: cp2122t_media/cp_p3.png Graphic file (type png)
+<use cp2122t_media/cp_p3.png>
+Package pdftex.def Info: cp2122t_media/cp_p3.png  used on input line 2612.
+(pdftex.def)             Requested size: 182.09486pt x 50.63704pt.
+\openout5 = `cp2122t.ptb'.
+
+ [25 <./cp2122t_media/cp_p3.png>] <xymatrix 3x2 352>
+Overfull \hbox (45.00003pt too wide) in alignment at lines 2701--2722
+ [][][] []
+ []
+
+<xymatrix 3x1 102>
+Overfull \hbox (45.00003pt too wide) in alignment at lines 2728--2738
+ [][][] []
+ []
+
+<cp2122t_media/cp_p4_pairL.png, id=419, 281.05pt x 166.6225pt>
+File: cp2122t_media/cp_p4_pairL.png Graphic file (type png)
+<use cp2122t_media/cp_p4_pairL.png>
+Package pdftex.def Info: cp2122t_media/cp_p4_pairL.png  used on input line 2767
+.
+(pdftex.def)             Requested size: 182.09486pt x 107.95502pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2773--2776
+
+ []
+
+<xymatrix 2x2 147>
+Overfull \hbox (45.00003pt too wide) in alignment at lines 2776--2789
+ [][][] []
+ []
+
+[26] <xymatrix 3x2 257>
+Overfull \hbox (45.00003pt too wide) in alignment at lines 2795--2812
+ [][][] []
+ []
+
+<xymatrix 3x1 102>
+Overfull \hbox (45.00003pt too wide) in alignment at lines 2817--2827
+ [][][] []
+ []
+
+<cp2122t_media/cp_p4_markMap.png, id=426, 574.145pt x 129.48375pt>
+File: cp2122t_media/cp_p4_markMap.png Graphic file (type png)
+<use cp2122t_media/cp_p4_markMap.png>
+Package pdftex.def Info: cp2122t_media/cp_p4_markMap.png  used on input line 28
+43.
+(pdftex.def)             Requested size: 364.19667pt x 82.13629pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+\openout5 = `cp2122t.ptb'.
+
+[27 <./cp2122t_media/cp_p4_pairL.png>]
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+\openout5 = `cp2122t.ptb'.
+
+ [28 <./cp2122t_media/cp_p4_markMap.png>]
+\openout5 = `cp2122t.ptb'.
+
+
+Overfull \hbox (9.34557pt too wide) in paragraph at lines 2977--2986
+ [][] 
+ []
+
+
+Overfull \hbox (9.34557pt too wide) in paragraph at lines 2977--2986
+ [][] 
+ []
+
+
+Overfull \hbox (9.34557pt too wide) in paragraph at lines 2977--2986
+ [][] 
+ []
+
+\openout5 = `cp2122t.ptb'.
+
+(./cp2122t.ind [29] [30
+
+
+]) (./cp2122t.bbl
+Overfull \hbox (91.4158pt too wide) in paragraph at lines 22--28
+[][]$\OT1/pcr/m/n/10 https : / / selfkey . org / what-[]is-[]a-[]merkle-[]tree-
+[]and-[]how-[]does-[]it-[]affect-[]blockchain-[]technology/$[][]\OT1/ppl/m/n/10
+ .
+ []
+
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3010.
+ [31
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3010.
+ (./cp2122t.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3010.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3010.
+
+Package rerunfilecheck Info: File `cp2122t.out' has not changed.
+(rerunfilecheck)             Checksum: 8BC6A9D57A672C345983D0C66B61A3D9;420.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3010.
+ ) 
+Here is how much of TeX's memory you used:
+ 13597 strings out of 483090
+ 197666 string characters out of 5963929
+ 529509 words of memory out of 5000000
+ 28133 multiletter control sequences out of 15000+600000
+ 572469 words of font info for 141 fonts, out of 8000000 for 9000
+ 61 hyphenation exceptions out of 8191
+ 48i,25n,77p,3294b,811s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary9.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palati
+no/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/xypic/xyatip10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/xypic/xybtip10.pfb>
+Output written on cp2122t.pdf (31 pages, 499905 bytes).
+PDF statistics:
+ 676 PDF objects out of 1000 (max. 8388607)
+ 533 compressed objects within 6 object streams
+ 130 named destinations out of 1000 (max. 500000)
+ 94 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,0 +1,74 @@
+\begin{theindex}
+
+  \item \LaTeX , \hyperpage{8}
+    \subitem \texttt  {bibtex}, \hyperpage{8}
+    \subitem \texttt  {lhs2TeX}, \hyperpage{8}
+    \subitem \texttt  {makeindex}, \hyperpage{8}
+
+  \indexspace
+
+  \item Blockchain, \hyperpage{1--3}
+
+  \indexspace
+
+  \item Combinador ``pointfree''
+    \subitem \emph  {ana}
+      \subsubitem Listas, \hyperpage{3}, \hyperpage{15, 16}
+    \subitem \emph  {cata}, \hyperpage{4}
+      \subsubitem Listas, \hyperpage{4}, \hyperpage{12}, 
+		\hyperpage{15, 16}
+      \subsubitem Naturais, \hyperpage{9}, \hyperpage{12, 13}, 
+		\hyperpage{16}
+    \subitem \emph  {either}, \hyperpage{2}, \hyperpage{4}, 
+		\hyperpage{10}, \hyperpage{12--16}
+  \item Cálculo de Programas, \hyperpage{1}, \hyperpage{8}
+    \subitem Material Pedagógico, \hyperpage{8}
+      \subsubitem FTree.hs, \hyperpage{1--3}, \hyperpage{14, 15}
+      \subsubitem LTree.hs, \hyperpage{1, 2}, \hyperpage{5}
+
+  \indexspace
+
+  \item Functor, \hyperpage{4}, \hyperpage{10}, \hyperpage{12, 13}
+  \item Função
+    \subitem $\pi _1$, \hyperpage{6}, \hyperpage{9, 10}, \hyperpage{12}, 
+		\hyperpage{15}
+    \subitem $\pi _2$, \hyperpage{6}, \hyperpage{9}
+    \subitem \emph  {length}, \hyperpage{10}, \hyperpage{12, 13}, 
+		\hyperpage{16}
+    \subitem \emph  {map}, \hyperpage{3}, \hyperpage{6}, 
+		\hyperpage{12, 13}, \hyperpage{15}
+    \subitem \emph  {uncurry}, \hyperpage{12}, \hyperpage{14}
+
+  \indexspace
+
+  \item Haskell, \hyperpage{1}, \hyperpage{5}, \hyperpage{8, 9}
+    \subitem interpretador
+      \subsubitem GHCi, \hyperpage{8, 9}
+    \subitem Literate Haskell, \hyperpage{8}
+    \subitem QuickCheck, \hyperpage{8}, \hyperpage{12}, \hyperpage{16}
+    \subitem Stack, \hyperpage{9}
+
+  \indexspace
+
+  \item Merkle tree, \hyperpage{1--3}
+  \item Mónade
+    \subitem Listas, \hyperpage{5}
+
+  \indexspace
+
+  \item Números naturais ($I\mskip -\thinmuskip \mskip -\thinmuskip N$), 
+		\hyperpage{9}
+
+  \indexspace
+
+  \item Programação
+    \subitem literária, \hyperpage{8}
+
+  \indexspace
+
+  \item U.Minho
+    \subitem Departamento de Informática, \hyperpage{1}
+  \item Unix shell
+    \subitem wc, \hyperpage{3}
+
+\end{theindex}
