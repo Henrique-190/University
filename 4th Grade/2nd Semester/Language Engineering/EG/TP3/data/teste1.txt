@@ -1,0 +1,30 @@
+_func { a }
+    Int b 3
+    ATRIB a 3
+    SE b > 3 
+        ATRIB a 4
+    ES
+RET a
+
+
+
+ESCREVER a+1
+
+Int a 
+Int c
+LER a
+
+SE b > 3 
+    SE a > 4 
+        SE a > 4 
+            ATRIB b 3 
+            ATRIB a 9
+        ES 
+    ES 
+ES
+
+CASO a
+    5 : LER a
+        LER c
+    6 : ESCREVER c
+OSAC

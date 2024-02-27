@@ -1,0 +1,8 @@
+# Configuration file for primary server SP1.LadoA-G704.
+LadoA-G704. DB data/LadoA/DB/LadoA.db
+LadoA-G704. SS 10.0.16.10
+LadoA-G704. SS 10.0.16.11
+LadoA-G704. DD 10.0.17.10
+LadoA-G704. LG data/LadoA/logs/LadoA.log
+all LG data/LadoA/logs/all.log
+root ST data/SList.txt

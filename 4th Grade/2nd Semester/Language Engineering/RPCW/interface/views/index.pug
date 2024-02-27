@@ -1,0 +1,101 @@
+extends layout
+
+block content
+  .modal(id="notif")
+  .w3-card-4
+    header.w3-container.w3-teal
+      if admin
+        h1 Base de Dados de Acordãos #[a.w3-btn.w3-border.w3-border-white(href="/acordaos/add") #[b +]] | Olá #{user} | #[a.w3-btn.w3-border.w3-border-white(href="/sugestoes") Sugestões] | #[a.w3-btn.w3-border.w3-border-white(href="/sugestoes") Gerir Sugestões] | #[a.w3-btn.w3-border.w3-border-white(href="/user/favoritos") Favoritos] | #[a.w3-btn.w3-red.w3-right(href="/login?username="+user) Sair]
+      else 
+        h1 Base de Dados de Acordãos | Olá #{user} | #[a.w3-btn.w3-border.w3-border-white(href="/user/sugestoes") MySugestões] | #[a.w3-btn.w3-border.w3-border-white(href="/user/favoritos") Favoritos] | #[a.w3-btn.w3-red.w3-right(href="/login?username="+user) Sair]
+      
+      .w3-center
+        .w3-bar.w3-teal
+          a.w3-bar-item.w3-button(href="/?tribunal=atco1" id="atco1") Atco1
+          a.w3-bar-item.w3-button(href="/?tribunal=jcon"  id="jcon") Jcon
+          a.w3-bar-item.w3-button(href="/?tribunal=jdgpj" id="jdgpj") Jdgpj
+          a.w3-bar-item.w3-button(href="/?tribunal=jsta"  id="jsta") Jsta
+          a.w3-bar-item.w3-button(href="/?tribunal=jstj"  id="jstj") Jstj
+          a.w3-bar-item.w3-button(href="/?tribunal=jtca"  id="jtca") Jtca
+          a.w3-bar-item.w3-button(href="/?tribunal=jtcampca" id="jtcampca") Jtcampca
+          a.w3-bar-item.w3-button(href="/?tribunal=jtcampct" id="jtcampct") Jtcampct
+          a.w3-bar-item.w3-button(href="/?tribunal=jtcn" id="jtcn") Jtcn
+          a.w3-bar-item.w3-button(href="/?tribunal=jtrc" id="jtrc") Jtrc
+          a.w3-bar-item.w3-button(href="/?tribunal=jtre" id="jtre") Jtre
+          a.w3-bar-item.w3-button(href="/?tribunal=jtrg" id="jtrg") Jtrg
+          a.w3-bar-item.w3-button(href="/?tribunal=jtrl" id="jtrl") Jtrl
+          a.w3-bar-item.w3-button(href="/?tribunal=jtrp" id="jtrp") Jtrp
+
+      if tribunal   
+        .w3-row.w3-section
+          .w3-col(style="width:50px; margin: 10px 5px;")
+            img(src="/images/icon-search.png")
+          .w3-rest
+            form(action="/acordaos/procura", method="post")
+              input(type="hidden" name="tribunal" value=tribunal)
+              input.w3-input.w3-border.w3-margin(name="procura" id="procura" placeholder="Procura")
+    
+    .w3-container
+      table.w3-table-all
+        tr 
+          th Id
+          th Processo
+          th Descritores
+          th Data do Acordão
+        each acordao in acordaos
+          tr
+            td
+              a.w3-btn(href="/acordaos/"+acordao._id+"?tribunal="+tribunal) #{acordao._id}
+            td=acordao.Processo
+            td=acordao.Descritores
+            if acordao["Data do Acordão"]
+              td=acordao["Data do Acordão"]
+            else if acordao["Data da Decisão"]
+              td=acordao["Data da Decisão"] 
+            else
+              td=acordao["Data"]
+
+    footer.w3-container.w3-teal
+      if index
+        .w3-bar.w3-border.w3-round
+          a.w3-button(onclick="sum(-1)" id="ant") &#10094; Anterior
+          .w3-button.w3-center(id="idx" style="left: 50%; position: absolute;") #{index}
+          a.w3-button.w3-right(onclick="sum(1)" id="prox") Próxima &#10095;
+
+
+    script(type="text/javascript").
+            window.addEventListener('load', function() {
+                if('#{index}' == '0'){
+                  $("#ant").addClass('w3-disabled')
+                  $("#ant").attr('disabled', true)
+                  $("#idx").text("0")
+                }
+                else if('#{index}' == '')
+                  $("#idx").text("0")
+
+                
+                if('#{tribunal}' != ''){
+                  $('##{tribunal}').removeClass('w3-teal')
+                  $('##{tribunal}').addClass('w3-gray')
+                }
+                else{
+                  $("#idx").text(#{index})
+                  $("#ant").addClass('w3-disabled')
+                  $("#ant").attr('disabled', true)
+                  $("#prox").addClass('w3-disabled')
+                  $("#prox").attr('disabled', true)
+                }
+                  
+                if ('#{message}' !== ''){
+                    alert('#{message}')
+                }
+            })
+
+            function sum(sinal){
+              var i = #{index} + 1*sinal
+              if(i < 0)
+                i = 0
+              else if('#{tribunal}' != ''){
+                window.location.href = "/?tribunal=#{tribunal}&index="+i
+              }
+            }

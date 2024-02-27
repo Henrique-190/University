@@ -1,0 +1,29 @@
+_id  { a }
+	Int a 
+	ATRIB a 5 * a 
+	Int a 4
+	Int a 4
+	Int a 4
+	SE e = (2, 1) 
+				ATRIB d False 
+			ES 
+
+	PARA 5 FAZER {
+		ESCREVER a
+		LER b
+		SE e = (2, 1) 
+			ATRIB d False 
+		ES 
+		PARA 5 FAZER {
+		ESCREVER a
+		LER b
+		SE e = (2, 1) 
+				ATRIB d False 
+		ES 
+		}
+	} 
+	RET 2
+
+Int a 3
+Int b
+ATRIB b _id(a)

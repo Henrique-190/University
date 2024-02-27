@@ -1,0 +1,28 @@
+---
+- name: MySQL PVC
+  shell: kubectl apply -f roles/mysql/tasks/mysql-pvc.yml
+
+- name: MySQL Service
+  shell: kubectl apply -f roles/mysql/tasks/mysql-service.yml
+
+- name: MySQL Deployment
+  shell: kubectl apply -f roles/mysql/tasks/mysql-deployment.yml
+
+- name: Updating IP
+  shell: kubectl get svc mysql-service -o jsonpath='{.spec.clusterIP}'
+  register: service_info
+
+- name: Set DB IP
+  set_fact:
+    db_host: "{{ service_info.stdout }}"
+
+#- name: Set Retain Data
+#  shell: kubectl patch pv pvc-c4edfe3d-76aa-496e-9f51-04ff2d7d3a84 -p '{"spec":{"persistentVolumeReclaimPolicy":"Retain"}}'
+
+- name: Updating Pod
+  shell: kubectl get pods -l app=mysql -o jsonpath='{.items[0].metadata.name}'
+  register: pod_info
+
+- name: Set MySQL Pod
+  set_fact:
+    mysql_pod: "{{ pod_info.stdout }}"

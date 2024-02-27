@@ -1,0 +1,1 @@
+Palavras comuns: ['processo', 'dataacordao', 'descritores', 'tribunal', 'url']

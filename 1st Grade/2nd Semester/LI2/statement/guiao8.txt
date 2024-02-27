@@ -1,0 +1,214 @@
+Guião da aula 8
+Laboratório de Algoritmia I
+
+Laboratórios de Informática II
+
+Ano letivo 2019/20
+
+Last Update: 04/01/2020 18:16:24
+
+Tarefas a executar esta semana
+As seguintes tarefas devem ser entregues (através do github) até ao dia 5 de Abril às 20h00:
+
+Criar o comando pos
+Informação sobre o o novo comando
+O comando pos deve permitir ao utilizador aceder a uma jogada anterior. Este comando é o primeiro passo para implementar o comando jog. Sugere-se que, ao implementar este comando, se planeie já as estruturas de dados e as funções de maneira a facilitar a implementação desse comando. Tal como se mostra no enunciado do projeto, pretende-se aceder a uma jogada anterior.
+
+O comando pos é utilizado da seguinte maneira:
+
+pos <nº de uma jogada anterior>
+Lembramos que cada jogada contém até dois movimentos: o movimento do jogador 1 e o do jogador 2. O objetivo é poder continuar o jogo a partir dessa posição/jogada.
+
+Para tentar desambiguar as possíveis perguntas que podem surgir:
+
+O comando pos precisa de um argumento que é um inteiro
+O comando deve funcionar para um valor 0 ≤ n < max  em que max  foi o valor da última jogada.
+Posição inicial do jogo
+No fim da primeira jogada, i.e., dos primeiros 2 movimentos
+No fim da segunda jogada, i.e., dos primeiros 4 movimentos
+No fim da enésima jogada
+Exemplo 1
+8 . . . . . . . 2 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . . . * . . . 
+4 . . . . . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 1 . . . . . . . 
+  a b c d e f g h 
+# 01 PL1 (1)> d4
+8 . . . . . . . 2 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . . . # . . . 
+4 . . . * . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 1 . . . . . . . 
+  a b c d e f g h 
+# 02 PL2 (1)> c5
+8 . . . . . . . 2 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . * . # . . . 
+4 . . . # . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 1 . . . . . . . 
+  a b c d e f g h 
+# 03 PL1 (2)> c4
+8 . . . . . . . 2 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . # . # . . . 
+4 . . * # . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 1 . . . . . . . 
+  a b c d e f g h 
+# 04 PL2 (2)> d5
+8 . . . . . . . 2 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . # * # . . . 
+4 . . # # . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 1 . . . . . . . 
+  a b c d e f g h 
+# 05 PL1 (3)> c6
+8 . . . . . . . 2 
+7 . . . . . . . . 
+6 . . * . . . . . 
+5 . . # # # . . . 
+4 . . # # . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 1 . . . . . . . 
+  a b c d e f g h 
+# 06 PL2 (3)> movs
+01: d4 c5
+02: c4 d5
+03: c6
+# 07 PL2 (3)> pos 1
+8 . . . . . . . 2 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . * . # . . . 
+4 . . . # . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 1 . . . . . . . 
+  a b c d e f g h 
+# 08 PL1 (2)> b4
+8 . . . . . . . 2 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . # . # . . . 
+4 . * . # . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 1 . . . . . . . 
+  a b c d e f g h
+# 09 PL2 (2)> movs
+01: d4 c5
+02: b4
+Exemplo 2
+8 . . . . . . . 2 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . . . * . . . 
+4 . . . . . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 1 . . . . . . . 
+  a b c d e f g h 
+# 01 PL1 (1)> d4
+8 . . . . . . . 2 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . . . # . . . 
+4 . . . * . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 1 . . . . . . . 
+  a b c d e f g h 
+# 02 PL2 (1)> c5
+8 . . . . . . . 2 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . * . # . . . 
+4 . . . # . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 1 . . . . . . . 
+  a b c d e f g h 
+# 03 PL1 (2)> c4
+8 . . . . . . . 2 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . # . # . . . 
+4 . . * # . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 1 . . . . . . . 
+  a b c d e f g h 
+# 04 PL2 (2)> d5
+8 . . . . . . . 2 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . # * # . . . 
+4 . . # # . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 1 . . . . . . . 
+  a b c d e f g h 
+# 05 PL1 (3)> c6
+8 . . . . . . . 2 
+7 . . . . . . . . 
+6 . . * . . . . . 
+5 . . # # # . . . 
+4 . . # # . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 1 . . . . . . . 
+  a b c d e f g h 
+# 06 PL2 (3)> movs
+01: d4 c5
+02: c4 d5
+03: c6
+# 07 PL2 (3)> pos 1
+8 . . . . . . . 2 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . * . # . . . 
+4 . . . # . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 1 . . . . . . . 
+  a b c d e f g h 
+# 08 PL1 (2)> pos 2
+8 . . . . . . . 2 
+7 . . . . . . . . 
+6 . . . . . . . . 
+5 . . # * # . . . 
+4 . . # # . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 1 . . . . . . . 
+  a b c d e f g h
+# 09 PL1 (3)> e6
+8 . . . . . . . 2 
+7 . . . . . . . . 
+6 . . . . * . . . 
+5 . . # # # . . . 
+4 . . # # . . . . 
+3 . . . . . . . . 
+2 . . . . . . . . 
+1 1 . . . . . . . 
+  a b c d e f g h
+# 10 PL2 (3)> movs
+01: d4 c5
+02: c4 d5
+03: e6

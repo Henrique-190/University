@@ -1,0 +1,18 @@
+Guião da aula 10
+Laboratório de Algoritmia I
+
+Laboratórios de Informática II
+
+Ano letivo 2019/20
+
+Last Update: 04/17/2020 12:33:54
+
+Tarefas a executar esta semana
+As seguintes tarefas deverão ser entregues (através do github) até ao dia 26 de Abril às 20h00:
+
+Implementar outra estratégia no comando jog2
+Começar a implementar o bot
+Só o comando jog2 será avaliado.
+
+Estratégia do comando jog2
+O comando jog2 funcionará da mesma maneira que o comando jog mas terá que implementar outra estratégia diferente. As estratégias a implementar podem ser escolhidas da lista dada no guião 9 ou não.

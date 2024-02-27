@@ -1,0 +1,6 @@
+# Configuration file for secondary server SS1.LadoA-G704.
+LadoA-G704. SP 10.0.17.10
+LadoA-G704. DD 10.0.17.10
+LadoA-G704. LG data/LadoA/logs/LadoA-SS1.log
+all LG data/LadoA/logs/SS1.log
+root ST data/SList.txt

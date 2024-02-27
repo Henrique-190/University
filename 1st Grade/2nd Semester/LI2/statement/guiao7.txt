@@ -1,0 +1,21 @@
+Guião da aula 7
+Laboratório de Algoritmia I
+
+Laboratórios de Informática II
+
+Ano letivo 2019/20
+
+Last Update: 03/29/2020 13:28:13
+
+Tarefas a executar esta semana
+As seguintes tarefas devem ser entregues (através do github) até ao dia 29 de Março às 20h00:
+
+Criar o comando movs
+Adicionar informação sobre os movimentos ao comando gr e ler
+Informação sobre os movimentos
+O comando movs deve ser implementado. Leiam no enuciado do projeto a secção sobre a lista de movimentos.
+Os comandos gr e ler precisam de guardar/ler informação sobre os movimentos.
+Tabuleiros para a avaliação
+tab1
+tab2
+tab3

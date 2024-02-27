@@ -1,0 +1,6 @@
+- name: Deploy monitoring
+  hosts: localhost
+  become: no
+  tasks:
+    - name: Deploy the monitoring dashboard
+      shell: "gcloud monitoring dashboards create --config-from-file='dashboard.json'"

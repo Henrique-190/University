@@ -1,0 +1,74 @@
+:root {
+    --vscode-bg: #1E1E1E;
+    --vscode-fg: #D4D4D4;
+    --vscode-grey: #6A6A6A;
+    --vscode-blue: #569CD6;
+    --vscode-yellow: #DCDCAA;
+    --vscode-green: #B5CEA8;
+    --vscode-red: #D16969;
+    --vscode-orange: #CE9178;
+    --vscode-purple: #C586C0;
+    --vscode-cyan: #4EC9B0;
+  }
+  
+  body {
+    background-color: var(--vscode-bg);
+    color: var(--vscode-fg);
+  }
+  
+  a {
+    color: var(--vscode-blue);
+  }
+  
+  a:hover {
+    color: var(--vscode-yellow);
+  }
+  
+  button,
+  input[type="submit"] {
+    background-color: var(--vscode-grey);
+    border-color: var(--vscode-grey);
+    color: var(--vscode-fg);
+  }
+  
+  button:hover,
+  input[type="submit"]:hover {
+    background-color: var(--vscode-blue);
+    border-color: var(--vscode-blue);
+  }
+  
+  code,
+  pre {
+    background-color: var(--vscode-grey);
+    color: var(--vscode-fg);
+  }
+  
+  code {
+    padding: 2px;
+  }
+  
+  pre {
+    padding: 10px;
+  }
+  
+  .highlight {
+    background-color: var(--vscode-yellow);
+    color: var(--vscode-bg);
+  }
+  
+  .variable {
+    color: var(--vscode-purple);
+  }
+  
+  .value {
+    color: var(--vscode-green);
+  }
+  
+  .function {
+    color: var(--vscode-blue);
+  }
+  
+  .other {
+    color: var(--vscode-orange);
+  }
+  

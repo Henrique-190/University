@@ -1,0 +1,5 @@
+CASO a
+    5 : LER a
+        LER c
+    6 : ESCREVER c
+OSAC

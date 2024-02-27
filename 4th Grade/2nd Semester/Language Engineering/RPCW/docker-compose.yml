@@ -1,0 +1,63 @@
+version: '1'
+
+services:
+  api:
+    container_name: api
+    build: ./api
+    restart: always
+    depends_on:
+      - mongodb
+    environment:
+    # <nome do serviço>://<nome do serviço no container>/<nome da coleção>
+      - MONGODB_URL=mongodb://mongodb/Acordaos
+    networks:
+      - acordaos-network
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+
+
+  auth:
+    container_name: auth
+    build: ./auth
+    restart: always
+    depends_on:
+      - mongodb
+    environment:
+    # <nome do serviço>://<nome do serviço no container>/<nome da coleção>
+      - MONGODB_URL=mongodb://mongodb/Acordaos
+    networks:
+      - acordaos-network
+
+  interface:
+    container_name: interface
+    build: ./interface
+    restart: always
+    ports:
+      - 11000:80
+    depends_on:
+      - auth
+      - api
+    networks:
+      - acordaos-network
+
+  mongodb:
+    container_name: acordaos-mongodb
+    # nome da imagem a ir buscar ao docker hub
+    image: mongo
+    #build: ./mongo
+    restart: always
+    # pasta tem de estar criada
+    volumes:
+      - dbdata:/data/db
+    networks:
+      - acordaos-network
+
+volumes:
+  dbdata:
+  
+
+
+networks:
+  # tcp-ip
+  acordaos-network:
+    driver: bridge

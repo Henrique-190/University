@@ -1,0 +1,7 @@
+api/node_modules/
+auth/node_modules/
+interface/node_modules/
+data
+data_copy
+.idea
+.vscode

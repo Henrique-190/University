@@ -1,0 +1,23 @@
+---
+all:
+  vars:
+    # GKE cluster variables
+    gcp_project: ascn-tp-g39 # ID of GCP Project
+    gcp_auth_kind: serviceaccount # Do not change
+    gcp_cred_file: ascn-tp-g39-4d2043d9efce.json # Path to service account keys (json file downloaded from GCP)
+
+    gcp_zone: us-central1-a
+    gcp_image_type: ubuntu_containerd
+    gcp_machine_type: e2-small # Can be changed if necessary
+    gcp_disk_size_gb: 100 # Can be changed if necessary
+    gcp_initial_node_count: 2 # Number of nodes to create. Can be changed if necessary
+
+    # APP variables
+    ghost_ip: 0
+    ghost_port: 80
+
+    ghost_db_name: ghost
+    ghost_db_user: teste
+    ghost_db_password: "123456_"
+
+    mysql_pod: ""

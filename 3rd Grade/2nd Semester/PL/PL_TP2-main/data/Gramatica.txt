@@ -1,0 +1,39 @@
+S' -> program
+program -> empty
+        | program exp
+empty ->
+exp -> COMENTARIO
+lista -> [ listcont
+lista -> [ ]
+tuplo -> ( tupcont
+tuplo -> ( )
+dict -> { dictcont
+dict -> { }
+listcont -> STRING ]
+listcont -> STRING , listcont
+listcont -> tuplo ]
+listcont -> tuplo , listcont
+tupcont -> STRING )
+tupcont -> STRING , tupcont
+tupcont -> tuplo )
+tupcont -> tuplo , tupcont
+dictcont -> STRING : STRING }
+dictcont -> STRING : STRING , dictcont
+exp -> EXP GRAM TODO
+exp -> % % LEX
+exp -> % % YACC
+exp -> INITCODE
+exp -> PYCODE
+exp -> % LITERALS lista
+exp -> % LITERALS STRING
+exp -> % TOKENS lista
+exp -> % TOKENS STRING
+exp -> % LEXIGNORE STRING
+exp -> REGEX OPENPARENTESES STRING codigo
+exp -> REGEX OPENPARENTESES FSTRING codigo
+exp -> ERROR OPENPARENTESES STRING codigo
+exp -> ERROR OPENPARENTESES FSTRING codigo
+codigo -> PYCODE CLOSEPARENTESES
+codigo -> PYCODE OPENPARENTESES codigo CLOSEPARENTESES
+exp -> % PRECEDENCE lista
+exp -> VARIAVEL = dict

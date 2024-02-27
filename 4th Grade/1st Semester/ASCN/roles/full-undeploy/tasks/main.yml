@@ -1,0 +1,15 @@
+---
+- name: Delete Pods
+  shell: kubectl delete pod --all
+
+- name: Delete Deployments
+  shell: kubectl delete deployment.apps --all
+
+- name: Delete Services
+  shell: kubectl delete service --all
+
+- name: Delete PVC
+  shell: kubectl delete pvc mysql-pv-claim
+
+- name: Delete MySQL PV
+  shell: kubectl get pv | grep pvc | awk '{print $1}' | xargs kubectl delete pv

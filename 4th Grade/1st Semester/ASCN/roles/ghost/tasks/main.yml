@@ -1,0 +1,37 @@
+---
+- name: Ghost Service
+  shell: kubectl apply -f roles/ghost/tasks/ghost-service.yml
+
+- name: Get external IP of load balancer
+  shell: kubectl get svc ghost-service -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+  register: external_ip
+  until: external_ip.stdout != ""
+  retries: 10
+  delay: 20
+
+- name: Set Ghost IP
+  set_fact:
+    ghost_ip: "{{ external_ip.stdout }}"
+
+- name: Configure Ghost
+  lineinfile:
+    dest: roles/ghost/tasks/ghost-deployment.yml
+    regexp: "http.*80"
+    line: "          value: 'http://{{ ghost_ip }}:{{ ghost_port }}/'"
+    state: present
+
+- name: Ghost Deployment
+  shell: kubectl apply -f roles/ghost/tasks/ghost-deployment.yml
+
+- name: Waiting for Ghost
+  ansible.builtin.uri:
+    url: "http://{{ ghost_ip }}:{{ghost_port}}/"
+    method: GET
+    status_code: 200
+  register: result
+  until: result.status == 200
+  retries: 20
+  delay: 10
+
+- name: Add Admin
+  shell: kubectl exec {{ mysql_pod }} -c mysql -- mysql --user="teste" --password="123456_" --database="ghost" --execute="update users set name='ascn', password='\$2b\$10\$GXYANAQsB6ftzkNYeM5GSuk6jTCbvE.M9Pf6dXfLUusTw3GMXtybu', email='ascn@example.com', status='active' where id=1;"

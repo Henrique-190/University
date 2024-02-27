@@ -1,0 +1,4 @@
+# Configuration file for primary server SP1.G704.
+G704. DB data/G704/DB/G704.db
+G704. LG data/G704/logs/G704.log
+all LG data/G704/logs/all.log

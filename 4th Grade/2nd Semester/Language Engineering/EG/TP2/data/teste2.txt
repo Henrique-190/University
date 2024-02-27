@@ -1,0 +1,5 @@
+_id {a}
+ATRIB a 5*a
+RET a
+
+Int a

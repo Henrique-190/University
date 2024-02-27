@@ -1,0 +1,1 @@
+{"version":"0.0.0","name":"api","dependencies":{"cookie-parser":{"version":"1.4.6"},"debug":{"version":"2.6.9"},"express":{"version":"4.16.4"},"http-errors":{"version":"1.6.3"},"mongoose":{"version":"7.3.0"},"morgan":{"version":"1.9.1"},"pug":{"version":"2.0.0-beta11"}}}

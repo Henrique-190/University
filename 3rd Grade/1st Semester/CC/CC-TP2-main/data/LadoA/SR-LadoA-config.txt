@@ -1,0 +1,5 @@
+# Configuration file for resolve server SR1.LadoA.G704.
+LadoA-G704. DD 10.0.17.10
+LadoA-G704. LG data/LadoA/logs/LadoA-SR.log
+all LG data/LadoA/logs/SR.log
+root ST data/SList.txt

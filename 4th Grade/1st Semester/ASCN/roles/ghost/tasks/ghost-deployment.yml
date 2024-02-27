@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ghost-deployment
+  labels:
+    app: ghost
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ghost
+  template:
+    metadata:
+      labels:
+        app: ghost
+    spec:
+      containers:
+      - name: ghost
+        image: ghost:5.14.1
+        ports:
+        - containerPort: 2368
+          protocol: TCP
+        resources:
+          requests:
+            cpu: 50m
+            memory: 100Mi
+        env:
+        - name: database__connection__host
+          value: mysql-service
+        - name: database__connection__database
+          value: ghost
+        - name: database__connection__user
+          value: teste
+        - name: database__connection__password
+          value: "123456_"
+        - name: url
+          value: 'http://35.202.190.65:80/'
+        ports:
+        - containerPort: 2368

@@ -1,0 +1,8 @@
+# Configuration file for primary server SP1.LadoB-G704.
+LadoB-G704. DB data/LadoB/DB/LadoB.db
+LadoB-G704. SS 10.0.22.10
+LadoB-G704. SS 10.0.22.11
+LadoB-G704. DD 10.3.3.1
+LadoB-G704. LG data/LadoB/logs/LadoB.log
+all LG data/LadoB/logs/all.log
+root ST data/SList.txt

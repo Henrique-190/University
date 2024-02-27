@@ -1,0 +1,23 @@
+---
+# Playbook to deploy Ghost and its components
+- name: DB install and start
+  hosts: localhost
+  roles:
+    - mysql
+  tags:
+    - dbinstall
+
+- name: Ghost install and start
+  hosts: localhost
+  roles:
+    - ghost
+  tags:
+    - ghostinstall
+  
+- name: Monitoring
+  hosts: localhost
+  roles:
+    - monit_deploy
+  tags:
+    - monit
+

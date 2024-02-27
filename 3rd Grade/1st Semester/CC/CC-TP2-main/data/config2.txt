@@ -1,0 +1,8 @@
+# Configuration file for primary server ladoa
+ladoa DB data/a.db
+ladoa SS 127.0.0.1
+ladoa SS 127.0.0.1
+ladoa DD 127.0.0.1
+ladoa LG data/ladoa.log
+all LG data/all.log
+root ST data/SList.txt

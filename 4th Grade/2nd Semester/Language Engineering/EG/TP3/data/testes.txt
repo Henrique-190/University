@@ -1,0 +1,74 @@
+_id  { a }
+	Int a 
+	ATRIB a 5 * a 
+	Int a 4
+LER a 
+ESCREVER a 
+SE c = "BOAS" 
+	SE d = [2, 1] 
+		SE e = (2, 1) 
+			ATRIB d False 
+		ES 
+		ATRIB a True
+	ES 
+	ATRIB b True
+ES  
+RET a 
+Int a 4
+Boolean b
+String c 
+Array d [2] 
+Tuplo e [3] 
+Lista f [4] 
+ATRIB a 5 
+ATRIB a b 
+ATRIB b True 
+ATRIB c "BOAS" 
+ATRIB d [2, 1] 
+ATRIB e (2, 1) 
+ATRIB f [2, 1] 
+LER a 
+ESCREVER a 
+SE b 
+	ATRIB a 4 
+ES 
+CASO a 
+	5 :
+		CASO a 
+	5 :
+		ESCREVER a 
+	6 :
+		ESCREVER b 
+OSAC 
+	6 :
+		CASO a 
+	5 :
+		ESCREVER a 
+	6 :
+		ESCREVER b 
+OSAC 
+OSAC 
+ENQ a = 5 FAZER {
+	ESCREVER a 
+}
+REPETIR {
+	ESCREVER a 
+} ATE b = 2 
+PARA 5 FAZER 
+{
+	ESCREVER a 
+}
+ATRIB a 5 + 3 
+ESCREVER f 
+ESCREVER a 
+SE b = 3 
+	ESCREVER a 
+	ESCREVER b 
+ES 
+SE c = "BOAS" 
+	SE d = [2, 1] 
+		SE e = (2, 1) 
+			ATRIB d False 
+		ES 
+	ES 
+ES 

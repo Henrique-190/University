@@ -1,0 +1,109 @@
+programa: funcao* item+
+
+item: declaracao
+    | instrucao
+
+declaracao: TIPO exp2 val?
+
+instrucao: atrib
+        | leitura
+        | escrita
+        | selecao
+        | repeticao
+
+atrib: "ATRIB" exp2 exp
+
+leitura: "LER" exp2
+escrita: "ESCREVER" exp
+
+selecao: "SE" exp item+ "ES"
+        | "CASO" exp2 (val ":" item+)+ "OSAC"
+
+repeticao: "ENQ" exp "FAZER" "{" item+ "}"
+        | "REPETIR" "{" item+ "}" "ATE" exp 
+        | "PARA" NUM "FAZER" "{" item+ "}"
+
+funcao: FUNCAO_ID params item+ "RET" exp
+
+exp: abs (op abs)*
+exp2: ID ("." ID)*
+
+abs: NEG? valor
+
+NEG: "!"
+
+op: OP
+    | RELACIONAL
+    | LOGICO
+
+OP: "+"
+    | "-"
+    | "*"
+    | "/"
+    | "%"
+    | "^"
+    | "cons"
+    | "snoc"
+    | "in"
+
+RELACIONAL : "="
+        | ">"
+        | ">="
+        | "<"
+        | "<="
+        | "!="
+
+LOGICO : "&"
+        | "|"
+
+
+valor: exp2
+    | val
+    | funcao_chamada
+    | ID "[" exp "]"
+    | ELEM exp2
+
+ELEM: "head"
+    | "tail"
+
+val: NUM
+    | STRING
+    | conjunto
+    | BOOL
+
+conjunto: tuplo
+    | lista
+
+tuplo: "(" val ("," val)* ")"
+    | "(" ")"
+
+lista: "[" val ("," val)* "]"
+    | "[" "]"
+
+BOOL: "True"
+    | "False"
+
+ID: /[a-z]+/
+NUM: /[0-9]|([1-9][0-9]*)/
+STRING: ESCAPED_STRING
+
+TIPO: "Int"
+    | "Boolean"
+    | "String"
+    | "Array"
+    | "Tuplo"
+    | "Lista"
+
+
+funcao_chamada: FUNCAO_ID args
+
+FUNCAO_ID: /_[a-z]+/
+params: "{" ID ("," ID)* "}"
+    | "{" "}"
+
+args: "(" exp2 ("," exp2)* ")"
+    | "(" ")"
+
+%import common.WS
+%import common.ESCAPED_STRING
+%ignore WS

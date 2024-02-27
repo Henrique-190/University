@@ -1,0 +1,8 @@
+# Configuration file for primary server SP2.dois-LadoB-G704.
+dois-LadoB-G704. DB data/dois/DB/dois.db
+dois-LadoB-G704. SS 10.0.24.10
+dois-LadoB-G704. SS 10.0.24.11
+dois-LadoB-G704. DD 10.0.23.10
+dois-LadoB-G704. LG data/dois/logs/dois.log
+all LG data/logs/all.log
+root ST data/SList.txt

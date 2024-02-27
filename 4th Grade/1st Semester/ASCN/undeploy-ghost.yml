@@ -1,0 +1,15 @@
+---
+- name: Undeploy Services
+  hosts: localhost
+  vars:
+    delete_data: false
+  tasks:
+    - name: execute full-undeploy
+      include_role:
+        name: full-undeploy
+      when: delete_data == 'true'
+
+    - name: execute ghost-undeploy
+      include_role:
+        name: ghost-undeploy
+      when: delete_data == false

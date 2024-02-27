@@ -1,0 +1,5 @@
+# Configuration file for resolve server SR1.LadoB-G704.
+LadoB-G704. DD 10.3.3.1
+LadoB-G704. LG data/LadoB/logs/LadoB-SR.log
+all LG data/LadoB/logs/SR.log
+root ST data/SList.txt

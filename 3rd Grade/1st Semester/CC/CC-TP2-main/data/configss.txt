@@ -1,0 +1,7 @@
+# Configuration file for secondary server SS1-2-henrique-g704
+ladoa DB data/a.db
+ladoa SP 127.0.0.1
+ladoa DD 127.0.0.1
+ladoa LG /data/ladoa.log
+all LG /data/all.log
+root ST /data/SList.db

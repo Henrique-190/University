@@ -1,0 +1,8 @@
+# Configuration file for primary server SP1.um-LadoA-G704.
+um-LadoA-G704. DB data/um/DB/um.db
+um-LadoA-G704. SS 10.0.18.10
+um-LadoA-G704. SS 10.0.18.11
+um-LadoA-G704. DD 10.0.19.11
+um-LadoA-G704. LG data/um/logs/um.log
+all LG data/logs/all.log
+root ST data/SList.txt

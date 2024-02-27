@@ -1,0 +1,1 @@
+module.exports.secret = "acordaos-secret-key"
