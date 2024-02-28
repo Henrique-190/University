@@ -8,5 +8,4 @@ A recommendation management system, including users, opinions and places.
 | ID | Nome |
 |----|------|
 | a93300 | Bohdan Malanka |
-| a93278 | Diogo da Silva Rebelo |
-| a93316 | Henrique José Fernandes Alvelos |
+| a93278 | Diogo da Silva Rebelo | a93316 | Henrique José Fernandes Alvelos |

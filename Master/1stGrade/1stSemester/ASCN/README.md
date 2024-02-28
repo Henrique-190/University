@@ -1,7 +1,7 @@
-# Aplicações e Serviços de Computação em Nuvem.
+# Aplicações e Serviços de Computação em Nuvem
 Automatização do processo de instalação, configuração, monitorização e avaliação da aplicação Ghost. 
 
-# Cloud Computing Applications and Services.
+# Cloud Computing Applications and Services
 Automation of the installation, configuration, monitoring and evaluation of the Ghost application.
 
 # Autores / Authors
