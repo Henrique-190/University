@@ -1,4 +1,4 @@
-# Based de Dados Não Relacionais
+# Bases de Dados Não Relacionais
 Um trabalho de análise, planeamento, implementação de um sistema de gestão hospitalar num banco de dados relacional em dois SGBDs não relacionais.
 
 # Non-Relational Database
