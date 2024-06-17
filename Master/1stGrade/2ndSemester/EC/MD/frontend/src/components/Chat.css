@@ -1,0 +1,206 @@
+.Chat_page{
+
+width: 100vw;
+height: 100vh;
+
+
+background: #FFFFFF;
+}
+
+.Rectangle_1{
+
+position: absolute;
+width: 100vw;
+height: 100vh;
+left: 0px;
+top: 0px;
+
+background: linear-gradient(247.13deg, rgba(154, 20, 20, 0.6) 0%, rgba(37, 88, 32, 0.6) 74.25%);
+}
+
+.Rectangle_6{
+
+position: absolute;
+width: 287px;
+height: 982px;
+left: 0px;
+top: 0px;
+
+background: rgba(217, 217, 217, 0.5);
+border-radius: 10px;
+}
+
+
+.Logout{
+    /* Rectangle 14 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 32px;
+
+position: absolute;
+width: 242px;
+height: 58px;
+left: 23px;
+top: 914px;
+
+background: #6C6C6C;
+border-radius: 10px;
+
+}
+
+.Chats_list{
+
+/* Rectangle 13 */
+display: flex;
+justify-content: center;
+align-items: center;
+
+width: 235px;
+height: 63px;
+left: 26px;
+top: 100px;
+margin-left: 20px;
+margin-top: 10px;
+
+background: #F4F1F1;
+border-radius: 10px;
+
+
+}
+.Chats_1{
+
+position: absolute;
+width: 113px;
+height: 48px;
+left: 87px;
+top: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 40px;
+line-height: 48px;
+
+color: #000000;
+
+}
+
+.Rectangle_7{
+
+position: absolute;
+width: 1169px;
+height: 982px;
+left: 343px;
+top: 0px;
+
+background: rgba(217, 217, 217, 0.5);
+border-radius: 10px;
+}
+
+.Rectangle_8{
+
+box-sizing: border-box;
+
+position: absolute;
+margin-top: 20px;
+width: 755px;
+height: 91px;
+left: 550px;
+top: 833px;
+
+background: #D9D9D9;
+border: 1px solid #000000;
+box-shadow: -5px 7px 4px rgba(0, 0, 0, 0.25);
+border-radius: 40px;
+}
+
+.Polygon_1 {
+  box-sizing: border-box;
+  margin-top: 20px;
+
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 1393px;
+  top: 842px;
+
+  border-left: 36.5px solid transparent; /* Half of 73px for even triangle sides */
+  border-right: 36.5px solid transparent; /* Half of 73px for even triangle sides */
+  border-bottom: 68px solid #D9D9D9; /* Height of the triangle */
+  /* box-shadow: -5px 5px 4px rgba(0, 0, 0, 0.25); */
+  transform: rotate(90deg);
+}
+
+
+.Rectangle_11{
+
+position: absolute;
+width: 287px;
+height: 807px;
+left: 0px;
+top: 88.5px;
+
+background: #D9D9D9;
+border-radius: 10px;
+}
+
+.Rectangle_12::-webkit-scrollbar {
+    width: 10px;
+}
+
+.Rectangle_12::-webkit-scrollbar-track {
+  background: #6C6C6C;
+}
+
+.Rectangle_12::-webkit-scrollbar-thumb {
+  background: #6C6C6C;
+  border-radius: 20px;
+}
+
+.Rectangle_12::-webkit-scrollbar-thumb:hover {
+  background: #353535;
+}
+
+.Rectangle_12{
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: 0;
+    border: 3px solid #6C6C6C;
+    overflow-y: scroll;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+margin-bottom: 20px;
+    
+position: absolute;
+width: 1105px;
+height: 786px;
+left: 375px;
+top: 24px;
+
+background: #D9D9D9;
+border-radius: 10px;
+}
+
+.Rectangle_12 p {
+    border-radius: 1.15rem;
+    line-height: 1.25;
+    max-width: 75%;
+    padding: 0.5rem .875rem;
+    position: relative;
+    word-wrap: break-word;
+  }
+  
+  .Rectangle_12 p::before,
+  .Rectangle_12 p::after {
+    bottom: -0.1rem;
+    content: "";
+    height: 1rem;
+    position: absolute;
+  }

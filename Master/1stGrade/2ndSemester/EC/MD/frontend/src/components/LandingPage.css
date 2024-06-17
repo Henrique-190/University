@@ -1,0 +1,80 @@
+.mainDiv {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; /* Ensures space between left and right members */
+  height: 100vh;
+  width: 100vw;
+  background: rgb(218,41,28);
+  background: -moz-linear-gradient(357deg, rgba(218,41,28,1) 0%, rgba(4,106,56,1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(218,41,28,1) 0%, rgba(4,106,56,1) 100%);
+  background: linear-gradient(-120deg, rgba(218,41,28,1) 0%, rgba(4,106,56,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#da291c",endColorstr="#046a38",GradientType=1);
+}
+
+.leftMember {
+  position: absolute;
+  left: 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 50vw;
+/* width: 40%; Adjusted width to make sure it fits well */
+}
+
+.Logo {
+  font-size: 4rem;
+  color: #fff;
+  margin-bottom: 2rem; /* Adjusted margin */
+}
+
+.paragraph {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.launchapp {
+  background-color: rgba(4,116,56,1);
+  color: #fff;
+  border-radius: 20px; /* Adjusted from vw to px for better consistency */
+  border: solid 2px #fff;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.launchapp:hover {
+  background-color: #00b09b;
+  transform: scale(1.05);
+  color: #fff;
+}
+
+.rightMember {
+  position: absolute;
+  right: 0;
+  width: 50vw; /* Adjusted width to make sure it fits well */
+  min-width: 0px; /* Adjusted minimum width for better responsiveness */
+  padding-right: 0;
+  animation: jump 2s ease-in-out infinite;
+
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+@keyframes jump {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-10px);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
